@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barre Resilience Hub — Flood Risk &amp; Community Support</title>
+<meta name="description" content="Look up flood risk for your Barre City, Vermont property and discover low-cost resilience actions. Community-powered flood preparedness by Barre Up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   COLOR SYSTEM
+   Blues (9), Yellows (9), Risk spectrum,
+   Van Gogh accents, white/black
+═══════════════════════════════════════ */
+:root {
+  /* Blues */
+  --blue-1:#F0F4F8; --blue-2:#DDEAF5; --blue-3:#B8D0E8;
+  --blue-4:#7AAECF; --blue-5:#4A85B0; --blue-6:#2E6590;
+  --blue-7:#1D4B6E; --blue-8:#0F2F47; --blue-9:#071E2E;
+  /* Yellows */
+  --yel-1:#FDFAF0; --yel-2:#F7EFC8; --yel-3:#EDD87A;
+  --yel-4:#D4B84A; --yel-5:#B8962E; --yel-6:#9A7820;
+  --yel-7:#7A5C10; --yel-8:#5A4008; --yel-9:#3A2804;
+  /* Van Gogh accents */
+  --vg-cobalt:#1F4E8C; --vg-gold:#C8960A;
+  /* Neutral */
+  --white:#FFFFFF; --black:#0A0A0A;
+
+  /* ── Muted risk spectrum (red→yellow→green, palette-aligned) ── */
+  --risk-extreme-bg: #7A3535;   /* muted deep red-brown   */
+  --risk-extreme-lt: #F2DADA;   /* soft blush tint        */
+  --risk-high-bg:    #8C5A2A;   /* muted amber-sienna     */
+  --risk-high-lt:    #F5EAD8;   /* warm sand tint         */
+  --risk-moderate-bg:#8C7A1A;   /* muted olive-gold       */
+  --risk-moderate-lt:#F5F0D0;   /* pale straw tint        */
+  --risk-low-bg:     #3A6B7A;   /* muted teal-blue        */
+  --risk-low-lt:     #D8EEF5;   /* pale sky tint          */
+  --risk-minimal-bg: #2E5C3A;   /* muted forest green     */
+  --risk-minimal-lt: #D8EED8;   /* pale mint tint         */
+
+  /* Semantic */
+  --page-bg:var(--blue-1); --surface:var(--white);
+  --border:var(--blue-3); --text:var(--blue-8);
+  --text-soft:#4A6880; --link:var(--blue-5);
+  /* Layout */
+  --r:12px; --r-lg:20px; --r-sm:6px;
+  --focus:0 0 0 3px var(--vg-gold),0 0 0 5px var(--white);
+  --font-d:'Nunito Sans',sans-serif;
+  --font-b:'DM Sans',sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-b);font-size:1rem;line-height:1.6;background:var(--page-bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+:focus-visible{outline:none;box-shadow:var(--focus);border-radius:var(--r-sm);}
+
+/* Skip link */
+.skip-link{position:absolute;top:-100%;left:1rem;background:var(--blue-7);color:var(--white);padding:.6rem 1.2rem;border-radius:0 0 var(--r-sm) var(--r-sm);font-family:var(--font-d);font-weight:700;font-size:.9rem;text-decoration:none;z-index:9999;transition:top .2s;}
+.skip-link:focus{top:0;box-shadow:none;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+#live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}
+
+/* ═══════════ HEADER & NAV ═══════════ */
+.site-header{background:var(--blue-8);border-bottom:2px solid var(--vg-cobalt);position:sticky;top:0;z-index:100;}
+.hdr{max-width:1000px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem;}
+
+.logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;flex-shrink:0;}
+.logo-mark{width:36px;height:36px;background:var(--yel-2);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
+.logo-text{font-family:var(--font-d);font-weight:800;font-size:1rem;color:var(--white);line-height:1.2;}
+.logo-text span{display:block;font-weight:300;font-size:.68rem;color:var(--blue-3);letter-spacing:.06em;text-transform:uppercase;}
+
+/* Nav */
+.main-nav{display:flex;gap:.15rem;flex-wrap:wrap;}
+.main-nav a{font-family:var(--font-d);font-size:.82rem;font-weight:600;color:var(--blue-3);text-decoration:none;padding:.45rem .8rem;border-radius:var(--r-sm);transition:color .15s,background .15s;white-space:nowrap;}
+.main-nav a:hover{color:var(--white);background:rgba(255,255,255,.1);}
+.main-nav a.nav-cta{background:var(--vg-gold);color:var(--blue-9);font-weight:800;}
+.main-nav a.nav-cta:hover{background:var(--yel-3);color:var(--blue-9);}
+
+/* ═══════════ HERO ═══════════ */
+.hero{background:var(--blue-8);background-image:radial-gradient(ellipse 70% 60% at 15% 80%,rgba(31,78,140,.5) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 85% 20%,rgba(200,150,10,.1) 0%,transparent 60%);padding:4rem 1.5rem 5.5rem;position:relative;overflow:hidden;}
+/* Subtle diagonal texture */
+.hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent 0,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 41px);pointer-events:none;}
+/* Curved bottom edge */
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:56px;background:var(--page-bg);clip-path:ellipse(54% 100% at 50% 100%);}
+
+/* ── Van Gogh sunflower SVG (inline, muted yellows, transparent) ── */
+.sunflower-bg{position:absolute;right:-40px;top:-30px;width:420px;height:420px;opacity:.13;pointer-events:none;z-index:0;}
+
+.hero-in{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-d);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--yel-3);margin-bottom:1.25rem;opacity:0;animation:fu .5s .1s ease forwards;}
+.edot{width:5px;height:5px;background:var(--vg-gold);border-radius:50%;}
+
+h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--white);line-height:1.12;letter-spacing:-.02em;margin-bottom:1rem;opacity:0;animation:fu .5s .2s ease forwards;}
+h1 .word-resilience{color:var(--yel-3);position:relative;}
+h1 .word-resilience::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--vg-gold),var(--yel-3));border-radius:2px;}
+
+.hero-sub{font-size:1.05rem;font-weight:300;color:var(--blue-3);line-height:1.7;max-width:520px;margin:0 auto 2.5rem;opacity:0;animation:fu .5s .3s ease forwards;}
+
+/* Search */
+.search-container{opacity:0;animation:fu .5s .4s ease forwards;}
+.search-label{display:block;font-family:var(--font-d);font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue-3);margin-bottom:.6rem;}
+.search-form{display:flex;background:var(--white);border-radius:50px;box-shadow:0 8px 40px rgba(0,0,0,.3);overflow:hidden;max-width:540px;margin:0 auto .65rem;border:2px solid transparent;transition:border-color .2s,box-shadow .2s;}
+.search-form:focus-within{border-color:var(--vg-gold);box-shadow:0 8px 40px rgba(0,0,0,.3),0 0 0 2px rgba(200,150,10,.3);}
+.s-wrap{display:flex;align-items:center;flex:1;padding-left:1.1rem;gap:.5rem;}
+#addressInput{flex:1;border:none;outline:none;padding:.9rem .5rem;font-family:var(--font-b);font-size:1rem;color:var(--text);background:transparent;min-width:0;}
+#addressInput::placeholder{color:var(--text-soft);font-weight:300;}
+#searchBtn{background:var(--blue-7);color:var(--white);border:none;padding:0 1.6rem;font-family:var(--font-d);font-size:.9rem;font-weight:700;cursor:pointer;border-radius:0 50px 50px 0;transition:background .15s;white-space:nowrap;min-height:48px;}
+#searchBtn:hover{background:var(--vg-cobalt);}
+.s-hint{font-size:.78rem;color:rgba(184,208,232,.7);text-align:center;}
+
+/* ═══════════ MAIN ═══════════ */
+#main{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+
+/* ═══════════ RESULT CARD ═══════════ */
+#rc{display:none;background:var(--surface);border-radius:var(--r-lg);box-shadow:0 4px 24px rgba(15,47,71,.1);overflow:hidden;margin-bottom:1.75rem;border:1px solid var(--blue-2);animation:fu .35s ease both;}
+.rh{padding:1.75rem 2rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;}
+.rbadge{flex-shrink:0;width:76px;height:76px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;color:var(--white);font-size:.58rem;text-transform:uppercase;letter-spacing:.07em;text-align:center;line-height:1.25;border:3px solid rgba(255,255,255,.3);}
+.rbadge .pct{font-size:1.3rem;line-height:1;margin-bottom:2px;letter-spacing:-.02em;}
+.rmeta{flex:1;min-width:200px;}
+.ztag{display:inline-block;padding:.22rem .8rem;border-radius:999px;font-family:var(--font-d);font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem;}
+.raddr{font-family:var(--font-d);font-size:1.4rem;font-weight:800;line-height:1.2;margin-bottom:.25rem;}
+.rhood{font-size:.85rem;font-weight:300;}
+.rbody{padding:1.5rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.85rem;}
+.itile{background:var(--blue-1);border:1px solid var(--blue-2);border-radius:var(--r);padding:.9rem 1rem;display:flex;gap:.7rem;align-items:flex-start;}
+.itile .ti{font-size:1.1rem;flex-shrink:0;margin-top:.1rem;}
+.tlbl{font-family:var(--font-d);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-soft);margin-bottom:.15rem;}
+.tval{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.4;}
+
+/* ═══════════ NO RESULT ═══════════ */
+#nr{display:none;background:var(--surface);border-radius:var(--r-lg);padding:2.5rem;text-align:center;box-shadow:0 4px 24px rgba(15,47,71,.08);border:1px solid var(--blue-2);margin-bottom:1.75rem;animation:fu .3s ease both;}
+#nr .nri{font-size:2.2rem;margin-bottom:.75rem;}
+#nr h2{font-family:var(--font-d);font-size:1.15rem;font-weight:800;color:var(--blue-7);margin-bottom:.5rem;}
+#nr p{color:var(--text-soft);font-size:.9rem;line-height:1.65;max-width:460px;margin:0 auto;}
+#nr a{color:var(--link);}
+
+/* ═══════════ ACTIONS ═══════════ */
+#as{display:none;background:var(--surface);border-radius:var(--r-lg);box-shadow:0 4px 24px rgba(15,47,71,.08);border:1px solid var(--blue-2);margin-bottom:1.75rem;overflow:hidden;animation:fu .35s .05s ease both;}
+.sh{padding:1.25rem 2rem;border-bottom:1px solid var(--blue-2);background:var(--yel-1);display:flex;align-items:center;gap:.75rem;}
+.sh h2{font-family:var(--font-d);font-size:1rem;font-weight:800;color:var(--blue-7);}
+.alist{padding:1.25rem 1.5rem 1.5rem;display:flex;flex-direction:column;gap:.85rem;}
+.aitem{border-radius:var(--r);border:1.5px solid var(--blue-2);background:var(--white);overflow:hidden;transition:border-color .2s,box-shadow .2s;}
+.aitem:hover{border-color:var(--blue-4);box-shadow:0 2px 12px rgba(74,133,176,.12);}
+.aitem-body{display:flex;gap:1rem;align-items:flex-start;padding:1rem 1.1rem 0.65rem;}
+.aico{font-size:1.4rem;flex-shrink:0;width:36px;text-align:center;}
+.atit{font-family:var(--font-d);font-weight:700;font-size:.92rem;color:var(--blue-7);margin-bottom:.2rem;}
+.adesc{font-size:.85rem;color:var(--text-soft);line-height:1.55;}
+.acost{margin-top:.4rem;display:inline-block;background:var(--yel-2);color:var(--yel-7);font-family:var(--font-d);font-size:.73rem;font-weight:700;padding:.18rem .65rem;border-radius:999px;border:1px solid var(--yel-3);}
+/* Citation strip */
+.acite{background:var(--blue-1);border-top:1px solid var(--blue-2);padding:.55rem 1.1rem .55rem calc(36px + 2rem);font-size:.75rem;color:var(--text-soft);line-height:1.5;}
+.acite strong{color:var(--blue-6);font-family:var(--font-d);font-weight:700;}
+.acite a{color:var(--blue-5);text-decoration:none;}
+.acite a:hover{text-decoration:underline;}
+
+/* ═══════════ FUND SECTION ═══════════ */
+#fund{background:var(--blue-8);background-image:radial-gradient(ellipse 60% 70% at 90% 50%,rgba(31,78,140,.6) 0%,transparent 70%);border-radius:var(--r-lg);padding:2.25rem 2rem;color:var(--white);margin-bottom:1.75rem;position:relative;overflow:hidden;border:1px solid var(--vg-cobalt);}
+.fbg{position:absolute;right:-20px;top:-20px;width:200px;height:200px;background:radial-gradient(circle,rgba(200,150,10,.09) 0%,transparent 70%);pointer-events:none;border-radius:50%;}
+.fey{font-family:var(--font-d);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--yel-3);margin-bottom:.4rem;}
+#fund h2{font-family:var(--font-d);font-size:1.45rem;font-weight:800;color:var(--white);line-height:1.2;margin-bottom:.6rem;letter-spacing:-.01em;}
+#fund h2 .gold{color:var(--vg-gold);}
+#fund .fund-desc{font-size:.92rem;color:var(--blue-3);line-height:1.7;max-width:500px;margin-bottom:1.5rem;font-weight:300;}
+
+/* How funds are used */
+.fund-uses{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.75rem;}
+.ftag{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:.3rem .85rem;font-size:.78rem;color:var(--blue-3);font-family:var(--font-d);font-weight:600;}
+
+/* CTA buttons row */
+.fund-ctas{display:flex;flex-wrap:wrap;gap:.85rem;align-items:center;}
+.btn-donate{display:inline-flex;align-items:center;gap:.5rem;background:var(--vg-gold);color:var(--blue-9);border:none;border-radius:999px;padding:.7rem 1.8rem;font-family:var(--font-d);font-size:.95rem;font-weight:800;cursor:pointer;text-decoration:none;transition:all .15s;min-height:48px;box-shadow:0 4px 16px rgba(200,150,10,.3);}
+.btn-donate:hover{background:var(--yel-3);transform:translateY(-1px);}
+.btn-apply{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);color:var(--white);border:1.5px solid rgba(255,255,255,.3);border-radius:999px;padding:.7rem 1.8rem;font-family:var(--font-d);font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .15s;min-height:48px;}
+.btn-apply:hover{background:rgba(255,255,255,.18);border-color:var(--yel-3);}
+
+.fund-note{margin-top:1.35rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.1);font-size:.8rem;color:rgba(184,208,232,.6);line-height:1.65;}
+.fund-note strong{color:rgba(255,255,255,.8);}
+
+/* ═══════════ PANELS ═══════════ */
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem;}
+.panel{background:var(--surface);border-radius:var(--r-lg);padding:1.5rem;box-shadow:0 2px 12px rgba(15,47,71,.07);border:1px solid var(--blue-2);}
+.panel h3{font-family:var(--font-d);font-size:.95rem;font-weight:800;color:var(--blue-7);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+.li{display:flex;align-items:center;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--blue-1);font-size:.85rem;}
+.li:last-child{border-bottom:none;}
+.lsw{width:28px;height:12px;border-radius:3px;flex-shrink:0;}
+.ln{font-family:var(--font-d);font-weight:700;font-size:.82rem;color:var(--text);min-width:72px;}
+.ld{font-size:.78rem;color:var(--text-soft);line-height:1.4;}
+.rlist{list-style:none;}
+.rlist li{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem 0;border-bottom:1px solid var(--blue-1);font-size:.85rem;color:var(--text-soft);line-height:1.45;}
+.rlist li:last-child{border-bottom:none;}
+.rlist a{color:var(--blue-5);text-decoration:none;font-weight:500;}
+.rlist a:hover{color:var(--blue-6);text-decoration:underline;}
+
+/* ═══════════ FOOTER ═══════════ */
+footer{background:var(--blue-9);border-top:2px solid var(--vg-cobalt);padding:2.25rem 1.5rem;text-align:center;}
+.fi{max-width:700px;margin:0 auto;}
+.fl{font-family:var(--font-d);font-size:1rem;font-weight:800;color:var(--white);margin-bottom:.5rem;}
+.fl span{color:var(--yel-3);}
+footer p{font-size:.78rem;color:rgba(184,208,232,.6);line-height:1.8;margin-bottom:.25rem;}
+footer a{color:var(--blue-4);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+
+/* ═══════════ ANIMATIONS ═══════════ */
+@keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media(max-width:700px){
+  .main-nav a:not(.nav-cta){display:none;}
+  .main-nav a.nav-cta{display:flex;}
+  h1{font-size:1.85rem;}
+  .rh{flex-direction:column;align-items:flex-start;gap:.75rem;}
+  .rbody,.alist{padding:1rem;}
+  #fund{padding:1.75rem 1.25rem;}
+  .panels{grid-template-columns:1fr;}
+  .fund-ctas{flex-direction:column;align-items:stretch;}
+  .btn-donate,.btn-apply{justify-content:center;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<div id="live" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header" role="banner">
+  <div class="hdr">
+    <a href="#" class="logo" aria-label="Barre Resilience Hub — Home">
+      <div class="logo-mark" aria-hidden="true">🏡</div>
+      <div class="logo-text">Barre Resilience Hub<span>Barre City, Vermont</span></div>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#hero-h">Home</a>
+      <a href="#search-section">Search by Address</a>
+      <a href="mailto:info@barreup.org?subject=Flood Resilience Support Application" aria-label="Apply for support — opens email">Apply for Support</a>
+      <a href="#fund" class="nav-cta">Donate to Barre Neighbors Fund</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section aria-labelledby="hero-h" id="hero-h">
+  <div class="hero">
+
+    <!-- Van Gogh sunflower illustration — muted yellows, inline SVG -->
+    <svg class="sunflower-bg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <!-- Stem -->
+      <path d="M210 420 Q200 370 205 330 Q195 280 210 240" stroke="#D4B84A" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <!-- Leaves -->
+      <path d="M205 320 Q170 290 155 260 Q185 275 205 310" fill="#B8962E" opacity="0.5"/>
+      <path d="M207 295 Q245 265 262 235 Q232 252 208 286" fill="#B8962E" opacity="0.45"/>
+      <!-- Outer petals — ring 1 -->
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(22.5 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(45 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(67.5 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(90 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(112.5 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(135 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(157.5 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(180 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(202.5 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(225 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(247.5 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(270 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(292.5 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(315 210 210)"/>
+      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(337.5 210 210)"/>
+      <!-- Inner petals — ring 2, shorter -->
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(11.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(33.75 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(56.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(78.75 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(101.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(123.75 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(146.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(168.75 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(191.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(213.75 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(236.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(258.75 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(281.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(303.75 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(326.25 210 210)"/>
+      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(348.75 210 210)"/>
+      <!-- Seed head — dark center with spiral texture -->
+      <circle cx="210" cy="210" r="46" fill="#5A4008" opacity="0.9"/>
+      <circle cx="210" cy="210" r="42" fill="#3A2804" opacity="0.9"/>
+      <!-- Seed spiral dots -->
+      <circle cx="210" cy="195" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="222" cy="198" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="225" cy="210" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="222" cy="222" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="210" cy="225" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="198" cy="222" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="195" cy="210" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="198" cy="198" r="3" fill="#7A5C10" opacity="0.8"/>
+      <circle cx="210" cy="203" r="2.5" fill="#9A7820" opacity="0.7"/>
+      <circle cx="218" cy="206" r="2.5" fill="#9A7820" opacity="0.7"/>
+      <circle cx="218" cy="214" r="2.5" fill="#9A7820" opacity="0.7"/>
+      <circle cx="210" cy="217" r="2.5" fill="#9A7820" opacity="0.7"/>
+      <circle cx="202" cy="214" r="2.5" fill="#9A7820" opacity="0.7"/>
+      <circle cx="202" cy="206" r="2.5" fill="#9A7820" opacity="0.7"/>
+    </svg>
+
+    <div class="hero-in">
+      <div class="eyebrow" aria-hidden="true"><div class="edot"></div>Barre City, Vermont<div class="edot"></div></div>
+      <h1>Barre <span class="word-resilience">Resilience</span> Hub</h1>
+      <p class="hero-sub">Know your flood risk. Protect your home. Support your neighbors. Enter your Barre City address to get started — backed by official VCGI and FEMA data.</p>
+
+      <div class="search-container" id="search-section">
+        <form role="search" aria-label="Property flood risk lookup" onsubmit="doSearch(event)">
+          <label for="addressInput" class="search-label">Search by address</label>
+          <div class="search-form">
+            <div class="s-wrap">
+              <span aria-hidden="true" style="color:var(--blue-4);font-size:1rem;">🏠</span>
+              <input type="search" id="addressInput" placeholder="e.g. 10 River St or 45 Hill St"
+                autocomplete="street-address" autocorrect="off" spellcheck="false"
+                aria-describedby="shint"/>
+            </div>
+            <button type="submit" id="searchBtn" aria-label="Look up flood risk for entered address">Look Up</button>
+          </div>
+          <p id="shint" class="s-hint">Enter any Barre City street address — number and street name</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main id="main" tabindex="-1">
+<div style="max-width:900px;margin:0 auto;padding:2.5rem 1.5rem 4rem;">
+
+  <!-- Result Card -->
+  <section id="rc" aria-labelledby="raddr" aria-live="polite">
+    <div class="rh" id="rh-bg">
+      <div class="rbadge" id="rbadge" role="img" aria-label="Risk level">
+        <div class="pct" id="bpct">—</div>
+        <div id="blbl">Risk</div>
+      </div>
+      <div class="rmeta">
+        <div class="ztag" id="ztag">—</div>
+        <div class="raddr" id="raddr">—</div>
+        <div class="rhood" id="rhood">—</div>
+      </div>
+    </div>
+    <div class="rbody" id="rbody" role="list"></div>
+  </section>
+
+  <!-- Not found -->
+  <section id="nr" aria-label="Address not found" aria-live="polite">
+    <div class="nri" aria-hidden="true">🗺️</div>
+    <h2>Address not found in our database</h2>
+    <p>We have data for streets with documented flood risk in Barre City. Try a nearby street name, or visit the <a href="https://floodready.vermont.gov" target="_blank" rel="noopener noreferrer">Vermont Flood Ready Atlas</a> for any address statewide.</p>
+  </section>
+
+  <!-- Resilience Actions -->
+  <section id="as" aria-labelledby="ash">
+    <div class="sh"><span aria-hidden="true">🌱</span><h2 id="ash">Recommended Resilience Actions for Your Property</h2></div>
+    <div class="alist" id="alist" role="list"></div>
+  </section>
+
+  <!-- Fund / Donate Section -->
+  <section id="fund" aria-labelledby="fh">
+    <div class="fbg" aria-hidden="true"></div>
+    <div class="fey">Barre Neighbors Fund · Managed by Barre Up</div>
+    <h2 id="fh">Every neighbor deserves a chance to be <span class="gold">flood-ready</span></h2>
+    <p class="fund-desc">The Barre Neighbors Fund distributes money on a first-come, first-served basis according to need and available funding. Applications are reviewed and funds distributed by <strong style="color:var(--white);">Barre Up</strong>. Donate to the fund, or apply below if you need help covering the cost of resilience improvements for your property.</p>
+
+    <div class="fund-uses" aria-label="How donations are used">
+      <div class="ftag">🌿 Native plants &amp; rain gardens</div>
+      <div class="ftag">⛏️ Slope grading supplies</div>
+      <div class="ftag">🌳 Trees for uphill parcels</div>
+      <div class="ftag">🤝 Community planting days</div>
+      <div class="ftag">🏠 Backwater valve assistance</div>
+    </div>
+
+    <div class="fund-ctas">
+      <a href="https://www.gofundme.com" target="_blank" rel="noopener noreferrer" class="btn-donate" aria-label="Donate to the Barre Neighbors Fund — opens GoFundMe">
+        💛 Donate to the Barre Neighbors Fund
+      </a>
+      <a href="mailto:info@barreup.org?subject=Flood Resilience Support Application&body=Hello Barre Up,%0D%0A%0D%0AI would like to apply for support from the Barre Neighbors Fund.%0D%0A%0D%0AProperty address:%0D%0ADescription of need:%0D%0AContact name:%0D%0AContact phone/email:%0D%0A%0D%0AThank you." class="btn-apply" aria-label="Apply for support — opens email to info@barreup.org">
+        ✉️ Apply for Support
+      </a>
+    </div>
+
+    <p class="fund-note">
+      <strong>How it works:</strong> Applications are reviewed by Barre Up on a first-come, first-served basis, with priority given to highest-need properties. Questions? Write to us at <a href="mailto:info@barreup.org" style="color:var(--yel-3);">info@barreup.org</a>
+    </p>
+  </section>
+
+  <!-- Info Panels -->
+  <div class="panels">
+    <div class="panel">
+      <h3>🎨 Risk Level Guide</h3>
+      <dl>
+        <div class="li">
+          <div class="lsw" style="background:var(--risk-extreme-bg)" aria-hidden="true"></div>
+          <dt class="ln">Extreme</dt>
+          <dd class="ld">1% annual · Active floodway · Erosion + inundation</dd>
+        </div>
+        <div class="li">
+          <div class="lsw" style="background:var(--risk-high-bg)" aria-hidden="true"></div>
+          <dt class="ln">High</dt>
+          <dd class="ld">1% annual · 100-year floodplain (Zone AE)</dd>
+        </div>
+        <div class="li">
+          <div class="lsw" style="background:var(--risk-moderate-bg)" aria-hidden="true"></div>
+          <dt class="ln">Moderate</dt>
+          <dd class="ld">0.2% annual · 500-year floodplain (Zone X)</dd>
+        </div>
+        <div class="li">
+          <div class="lsw" style="background:var(--risk-low-bg)" aria-hidden="true"></div>
+          <dt class="ln">Low</dt>
+          <dd class="ld">&lt;0.2% · ANR River Corridor erosion hazard</dd>
+        </div>
+        <div class="li">
+          <div class="lsw" style="background:var(--risk-minimal-bg)" aria-hidden="true"></div>
+          <dt class="ln">Minimal</dt>
+          <dd class="ld">No mapped zone · Elevated parcel · Sponge opportunity</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="panel">
+      <h3>🔗 Official Resources</h3>
+      <ul class="rlist">
+        <li><span aria-hidden="true">🗺️</span><span><a href="https://floodready.vermont.gov" target="_blank" rel="noopener">Vermont Flood Ready Atlas</a> — look up any VT address</span></li>
+        <li><span aria-hidden="true">📦</span><span><a href="https://maps.vcgi.vermont.gov/parcelviewer/" target="_blank" rel="noopener">VCGI Parcel Viewer</a> — full parcel + flood overlay</span></li>
+        <li><span aria-hidden="true">🌿</span><span><a href="https://anrmaps.vermont.gov" target="_blank" rel="noopener">ANR Natural Resources Atlas</a> — river corridors</span></li>
+        <li><span aria-hidden="true">💧</span><span><a href="https://www.barrecity.org" target="_blank" rel="noopener">Barre City Official Site</a></span></li>
+        <li><span aria-hidden="true">📋</span><span><a href="https://dec.vermont.gov/watershed/rivers/river-corridor-floodplain" target="_blank" rel="noopener">VT ANR River Corridors</a> — erosion hazard maps</span></li>
+        <li><span aria-hidden="true">✉️</span><span>Questions? Contact <a href="mailto:info@barreup.org">info@barreup.org</a></span></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer role="contentinfo">
+  <div class="fi">
+    <div class="fl">Barre <span>Resilience</span> Hub</div>
+    <p>Flood data: VCGI · FEMA DFIRM Washington County · ANR River Corridor Program</p>
+    <p style="margin-top:.65rem;">Contact: <a href="mailto:info@barreup.org">info@barreup.org</a></p>
+    <p style="margin-top:.75rem;color:rgba(184,208,232,.4);">This tool is community-built and intended for informational purposes only. For official flood determinations, contact Barre City Hall or the Vermont ANR.</p>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════
+// RISK CONFIG
+// ═══════════════════════════════════════════
+const RISK_STYLE = {
+  EXTREME:  { bg:"var(--risk-extreme-bg)", lt:"var(--risk-extreme-lt)", txt:"#fff" },
+  HIGH:     { bg:"var(--risk-high-bg)",    lt:"var(--risk-high-lt)",    txt:"#fff" },
+  MODERATE: { bg:"var(--risk-moderate-bg)",lt:"var(--risk-moderate-lt)",txt:"#fff" },
+  LOW:      { bg:"var(--risk-low-bg)",     lt:"var(--risk-low-lt)",     txt:"#fff" },
+  MINIMAL:  { bg:"var(--risk-minimal-bg)", lt:"var(--risk-minimal-lt)", txt:"#fff" },
+};
+
+// ═══════════════════════════════════════════
+// PROPERTY DATA
+// ═══════════════════════════════════════════
+const P=[
+  {addr:"1 Granite St",hood:"North End / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
+  {addr:"10 River St",hood:"North End / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
+  {addr:"18 River St",hood:"North End / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
+  {addr:"10 Brooklyn St",hood:"Brooklyn / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
+  {addr:"25 Granite St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","downspout-extend"]},
+  {addr:"44 Granite St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","downspout-extend"]},
+  {addr:"12 North Main St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","french-drain"]},
+  {addr:"30 North Main St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","french-drain"]},
+  {addr:"56 North Main St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","french-drain"]},
+  {addr:"5 Park St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
+  {addr:"56 Parkside Terrace",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve"]},
+  {addr:"1 Berlin St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve","french-drain"]},
+  {addr:"20 Berlin St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve","french-drain"]},
+  {addr:"8 Pike St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
+  {addr:"22 Pike St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
+  {addr:"5 West Paterson St",hood:"West Side / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Flash Flooding",risk:"HIGH",ins:"Required",acts:["grade-swale","rain-garden","riparian-shrubs","backwater-valve"]},
+  {addr:"18 West Paterson St",hood:"West Side / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Flash Flooding",risk:"HIGH",ins:"Required",acts:["grade-swale","rain-garden","riparian-shrubs","backwater-valve"]},
+  {addr:"10 Orange St",hood:"West Side / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Flash Flooding",risk:"HIGH",ins:"Required",acts:["grade-swale","rain-garden","native-groundcover","backwater-valve"]},
+  {addr:"14 Maple Ave",hood:"Downtown / Ward 1",zone:"Zone AE",pct:"1.0%",fw:false,rc:false,f23:true,ft:"Stormwater Backup",risk:"HIGH",ins:"Required",acts:["native-groundcover","backwater-valve","basement-seal","rain-barrel"]},
+  {addr:"30 Merchant St",hood:"Downtown / Ward 1",zone:"Zone AE",pct:"1.0%",fw:false,rc:false,f23:true,ft:"Stormwater Backup",risk:"HIGH",ins:"Required",acts:["native-groundcover","backwater-valve","basement-seal","rain-barrel"]},
+  {addr:"15 Seminary St",hood:"Seminary / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
+  {addr:"40 Seminary St",hood:"Seminary / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
+  {addr:"5 North Seminary St",hood:"Seminary / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve","french-drain"]},
+  {addr:"8 Smith St",hood:"Brooklyn / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve"]},
+  {addr:"22 Smith St",hood:"Brooklyn / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve"]},
+  {addr:"100 Washington St",hood:"Downtown / Ward 1",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel"]},
+  {addr:"55 Prospect St",hood:"Prospect Heights",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel","uphill-shrubs"]},
+  {addr:"210 South Main St",hood:"South End / Ward 4",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel"]},
+  {addr:"88 Summer St",hood:"East Side / Ward 4",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel"]},
+  {addr:"15 Howard St",hood:"West Side / Ward 3",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:true,f23:false,ft:"Erosion hazard",risk:"LOW",ins:"Recommended",acts:["riparian-shrubs","native-groundcover","rain-barrel"]},
+  {addr:"35 George St",hood:"West Side / Ward 3",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:true,f23:false,ft:"Erosion hazard",risk:"LOW",ins:"Recommended",acts:["riparian-shrubs","native-groundcover","rain-barrel"]},
+  {addr:"45 Hill St",hood:"Upper Ward 2",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:false,f23:false,ft:"No flood risk",risk:"MINIMAL",ins:"Not required",acts:["uphill-shrubs","micro-wetland","canopy-trees"]},
+  {addr:"80 Maple Ave",hood:"Upper Ward 1",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:false,f23:false,ft:"No flood risk",risk:"MINIMAL",ins:"Not required",acts:["uphill-shrubs","micro-wetland","canopy-trees"]},
+  {addr:"120 High St",hood:"Upper Ward 4",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:false,f23:false,ft:"No flood risk",risk:"MINIMAL",ins:"Not required",acts:["uphill-shrubs","micro-wetland","canopy-trees"]},
+];
+
+const SR={
+  river:"EXTREME",granite:"HIGH","north main":"HIGH",berlin:"HIGH",pike:"HIGH",
+  paterson:"HIGH",orange:"HIGH",seminary:"HIGH",smith:"HIGH",brooklyn:"EXTREME",
+  parkside:"HIGH",park:"HIGH",maple:"HIGH",merchant:"HIGH",washington:"MODERATE",
+  summer:"MODERATE",prospect:"MODERATE",howard:"LOW",george:"LOW",
+  "south main":"MODERATE",hill:"MINIMAL","high st":"MINIMAL"
+};
+
+// ═══════════════════════════════════════════
+// ACTIONS DATABASE (with citations, no vendor/org references)
+// ═══════════════════════════════════════════
+const A = {
+
+  "grade-away": {
+    i:"⛏️",
+    t:"Regrade yard away from foundation",
+    c:"$0–$200 · DIY",
+    d:"Create a minimum 6-inch drop in grade over the first 10 feet away from all sides of your home's foundation. This redirects surface runoff before it pools against your walls — the single most impactful and lowest-cost flood protection step available to most homeowners.",
+    cite: { label:"Source", text:"FEMA Home Builder's Guide to Coastal Construction (P-499, 2010); Vermont ANR Floodplain Management Program" }
+  },
+
+  "grade-swale": {
+    i:"🌊",
+    t:"Install a swale or berm on the uphill property edge",
+    c:"$50–$400 · DIY",
+    d:"A shallow 'V'-shaped channel (swale) dug along the uphill side of your property intercepts and redirects sheet flow before it reaches your home. Seed the swale with a dense, fibrous grass to hold its shape through freeze-thaw cycles.",
+    cite: { label:"Source", text:"USDA Natural Resources Conservation Service, Engineering Field Handbook Chapter 14 — Water Management" }
+  },
+
+  "riparian-shrubs": {
+    i:"🌿",
+    t:"Plant native riparian shrubs near stream edges",
+    c:"Low cost · Bare root plantings",
+    d:"The following native shrubs are well-documented for Vermont's riparian zones and have proven root systems for bank stabilization and runoff absorption:\n\n• <strong>Silky Dogwood</strong> (<em>Cornus amomum</em>) — native to VT, thrives in USDA Zone 5a, grows in wet to moist soils, excellent for stream banks, dense fibrous roots.\n• <strong>Speckled Alder</strong> (<em>Alnus incana</em>) — native VT species, nitrogen-fixing, colonizes wet disturbed soils rapidly, known to stabilize eroding stream banks throughout the Northeast.\n• <strong>Buttonbush</strong> (<em>Cephalanthus occidentalis</em>) — native to VT, tolerates standing water and periodic flooding, documented for use in riparian restoration in Zone 4–6 regions.\n• <strong>Nannyberry</strong> (<em>Viburnum lentago</em>) — native VT shrub, adaptable to moist soils, provides year-round structure for bank integrity.",
+    cite: { label:"Sources", text:"USDA PLANTS Database (plants.usda.gov) — native range and soil tolerance data; University of Vermont Cultivar & Ecology Program; VT Fish &amp; Wildlife Dept. Native Plants for Vermont Landscapes (2019)" }
+  },
+
+  "rain-garden": {
+    i:"🌸",
+    t:"Create a native rain garden in low spots",
+    c:"Moderate cost · Multi-season project",
+    d:"A rain garden is a shallow planted depression that collects and infiltrates runoff from impervious surfaces. Excavate 6–12 inches below surrounding grade, amend soil with compost, and plant with flood-tolerant natives. Studies show a properly sized rain garden can absorb 30–40% more stormwater than a conventional lawn of the same area.\n\nRecommended Vermont-native plants for rain gardens in USDA Zone 5a:\n• <strong>Blue Flag Iris</strong> (<em>Iris versicolor</em>) — VT state wildflower, wet to moist soils, documented for use in rain garden applications across the Northeast.\n• <strong>Swamp Milkweed</strong> (<em>Asclepias incarnata</em>) — native to VT, wet soils, excellent pollinator value, well-studied for stormwater bioretention.\n• <strong>Joe-Pye Weed</strong> (<em>Eutrochium purpureum</em>) — native VT species, tolerates periodic flooding, deep tap root aids infiltration.\n• <strong>Cardinal Flower</strong> (<em>Lobelia cardinalis</em>) — native to VT riparian areas, moist to wet soils, well-documented in bioretention literature.",
+    cite: { label:"Sources", text:"University of Wisconsin Extension, Rain Gardens: A How-To Manual for Homeowners (2003); USDA PLANTS Database — native range verification; VT DEC Stormwater Management Manual (2017)" }
+  },
+
+  "native-groundcover": {
+    i:"🍃",
+    t:"Replace lawn with deep-rooted native ground cover",
+    c:"Low cost · Low maintenance once established",
+    d:"Conventional turf grass has a shallow root system (2–4 inches) with limited infiltration capacity. Native ground covers with deeper root systems significantly increase the volume and speed of stormwater absorbed on-site. Recommended Vermont-native ground covers for Zone 5a:\n\n• <strong>Pennsylvania Sedge</strong> (<em>Carex pensylvanica</em>) — native to VT, 6–12 inch roots, thrives in shade to partial sun, excellent for slopes.\n• <strong>Wild Ginger</strong> (<em>Asarum canadense</em>) — native to VT woodland areas, dense mat-forming, moist soils, naturalizes readily.\n• <strong>Foamflower</strong> (<em>Tiarella cordifolia</em>) — native to VT, spreads by runners, moist woodland soils, documented use in stormwater green infrastructure.",
+    cite: { label:"Sources", text:"USDA PLANTS Database — native range data; National Wildlife Federation Native Plant Finder (verified Zone 5a); UVM Extension Sustainable Landscapes Program" }
+  },
+
+  "backwater-valve": {
+    i:"🔧",
+    t:"Install a backwater valve on your basement floor drain",
+    c:"Moderate cost · Licensed plumber required",
+    d:"A backwater (or 'check') valve installed on the basement floor drain or sewer lateral prevents municipal sewer water from backing up into your basement during high-flow events when the combined sewer system is overwhelmed. This is a mechanical fix that requires a licensed plumber. It is required under Barre City's Flood Hazard Area Regulations for substantial improvements to properties in Zone AE.",
+    cite: { label:"Sources", text:"Barre City Flood Hazard Area Regulations (rev. Nov 4, 2024); FEMA Reducing Flood Losses Through the International Codes (2008)" }
+  },
+
+  "basement-seal": {
+    i:"🏠",
+    t:"Seal basement walls with hydraulic cement",
+    c:"Low cost · DIY",
+    d:"Hydraulic cement expands as it cures, sealing cracks and gaps against groundwater intrusion. Apply to all visible cracks, floor-wall joints, and penetration points (pipes, conduit). This is a first-line defense against seepage during high water table events and does not require permits for typical residential use.",
+    cite: { label:"Source", text:"FEMA Protecting Your Home and Property From Flood Damage (FEMA-499, 2010) — Dry Floodproofing section" }
+  },
+
+  "downspout-extend": {
+    i:"💧",
+    t:"Extend downspouts at least 6 feet from your foundation",
+    c:"Very low cost · DIY",
+    d:"Downspouts discharging at the foundation wall concentrate large volumes of roof runoff directly against your home. Plastic or flexible extensions redirect this water to vegetated areas where it can infiltrate. Discharge should be directed away from all neighboring properties as well. This simple measure meaningfully reduces foundation moisture and basement seepage.",
+    cite: { label:"Source", text:"VT DEC Stormwater Management Manual (2017); EPA Green Infrastructure: Rainwater Harvesting (2021)" }
+  },
+
+  "french-drain": {
+    i:"🪨",
+    t:"Install a French drain at the foundation perimeter",
+    c:"Higher cost · Contractor recommended",
+    d:"A French drain is a gravel-filled trench containing a perforated pipe that intercepts groundwater moving toward the foundation and redirects it to a daylight outlet or dry well. This is the most effective solution for homes with chronically wet basements or high seasonal water tables. Installation typically requires excavation around the perimeter of the home.",
+    cite: { label:"Source", text:"FEMA Home Builder's Guide to Coastal Construction (P-499); IRC Section R405 — Foundation Drainage" }
+  },
+
+  "rain-barrel": {
+    i:"🛢️",
+    t:"Install rain barrels to capture roof runoff",
+    c:"Low cost · DIY",
+    d:"Rain barrels connected to downspouts capture roof runoff during storm events (a standard 55-gallon barrel fills in approximately 0.3 inches of rain on a typical roof section). Water held in the barrel is released slowly between storms, reducing the peak runoff reaching streets and storm drains. Multiple barrels in series increase storage capacity.",
+    cite: { label:"Source", text:"EPA Green Infrastructure: Rainwater Harvesting Fact Sheet (EPA 832-F-21-006, 2021)" }
+  },
+
+  "uphill-shrubs": {
+    i:"🌲",
+    t:"Plant water-absorbing shrubs on uphill slopes",
+    c:"Moderate cost · Seasonal planting",
+    d:"Elevated and uphill parcels can function as community-scale sponges, absorbing precipitation before it flows downhill toward flood-prone neighborhoods. Dense native shrub plantings on these slopes significantly increase interception and infiltration rates compared to mown grass.\n\nRecommended Vermont-native shrubs for uphill slopes in Zone 5a:\n• <strong>Black Chokeberry</strong> (<em>Aronia melanocarpa</em>) — native to VT, extremely cold-hardy, adaptable to a wide range of soils including poorly drained, documented for use in green stormwater infrastructure.\n• <strong>Red Osier Dogwood</strong> (<em>Cornus sericea</em>) — native to VT, vigorous in moist to wet soils, fibrous root system well-suited for slope stabilization.\n• <strong>Pussy Willow</strong> (<em>Salix discolor</em>) — native to VT, thrives in wet and seasonally saturated soils, rapid colonizer.\n• <strong>Tussock Sedge</strong> (<em>Carex stricta</em>) — native VT wetland sedge, dense tussock form provides exceptional interception and slows overland flow.",
+    cite: { label:"Sources", text:"USDA PLANTS Database — native range and soil tolerance data; VT Fish &amp; Wildlife Native Plants for Vermont Landscapes (2019); National Wildlife Federation Native Plant Finder (Zone 5a)" }
+  },
+
+  "micro-wetland": {
+    i:"🦆",
+    t:"Create a micro-wetland in seasonal wet areas",
+    c:"Moderate to higher cost · Light excavation",
+    d:"Low spots on elevated properties that hold seasonal water are natural candidates for small constructed wetlands. Shallow excavation (12–18 inches) creates a permanent or semi-permanent water feature that stores stormwater volume and releases it slowly through infiltration and evapotranspiration. Recommended Vermont-native wetland plants for Zone 5a:\n\n• <strong>Common Cattail</strong> (<em>Typha latifolia</em>) — native to VT, well-documented for water retention and nutrient uptake in constructed wetlands.\n• <strong>Arrowhead</strong> (<em>Sagittaria latifolia</em>) — native to VT, shallow emergent aquatic, thrives in Zone 5 constructed wetlands.\n• <strong>Swamp Rose</strong> (<em>Rosa palustris</em>) — native to VT, documented for wet soils and seasonal flooding, provides structural bank edge.",
+    cite: { label:"Sources", text:"USDA PLANTS Database; USDA NRCS Constructed Wetlands for Agricultural Wastewater (1991) — infiltration data; VT DEC Wetlands Program" }
+  },
+
+  "canopy-trees": {
+    i:"🌳",
+    t:"Plant native canopy trees on elevated land",
+    c:"Low to moderate cost per tree · Long-term investment",
+    d:"A mature native deciduous tree intercepts precipitation in its canopy before it reaches the ground (a process called 'interception'), meaningfully reducing peak stormwater runoff on a per-tree basis. Studies estimate 1,000–4,000 gallons of rain per year intercepted by a single mature tree, depending on canopy size. This benefit accrues over time and is most valuable when trees are planted on elevated parcels upstream of flood-prone areas.\n\nRecommended Vermont-native canopy trees for Zone 5a:\n• <strong>Sugar Maple</strong> (<em>Acer saccharum</em>) — VT state tree, large canopy, well-documented stormwater interception values.\n• <strong>Yellow Birch</strong> (<em>Betula alleghaniensis</em>) — native to VT, adaptable, excellent for moist upland soils.\n• <strong>Bur Oak</strong> (<em>Quercus macrocarpa</em>) — native to VT, one of the most drought- and flood-tolerant oaks, deep taproot, long-lived.",
+    cite: { label:"Sources", text:"USDA Forest Service i-Tree Eco — canopy interception modeling; USDA PLANTS Database — native range data; Casey Trees / American Forests, Benefits of Urban Trees (2020)" }
+  }
+};
+
+// ═══════════════════════════════════════════
+// LOOKUP
+// ═══════════════════════════════════════════
+function norm(s){return s.toLowerCase().replace(/[.,\-]/g,'').trim();}
+
+function find(q){
+  const n=norm(q);
+  for(const p of P){if(norm(p.addr)===n)return{m:'e',d:p};}
+  for(const p of P){const s=norm(p.addr).split(' ').slice(1).join(' ');if(n.includes(s)||norm(p.addr).includes(n))return{m:'p',d:p};}
+  for(const[s,r]of Object.entries(SR)){if(n.includes(s))return{m:'s',r};}
+  return null;
+}
+
+function synth(r,q){
+  const zm={EXTREME:"Zone AE – Floodway",HIGH:"Zone AE",MODERATE:"Zone X (500-yr)",LOW:"Zone X (unshaded)",MINIMAL:"Zone X (unshaded)"};
+  const pm={EXTREME:"1.0%",HIGH:"1.0%",MODERATE:"0.2%",LOW:"<0.2%",MINIMAL:"<0.2%"};
+  const am={EXTREME:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"],HIGH:["grade-away","rain-garden","riparian-shrubs","backwater-valve","downspout-extend"],MODERATE:["native-groundcover","basement-seal","rain-barrel"],LOW:["riparian-shrubs","native-groundcover","rain-barrel"],MINIMAL:["uphill-shrubs","micro-wetland","canopy-trees"]};
+  return{addr:q.replace(/\b\w/g,c=>c.toUpperCase()),hood:"Barre City",zone:zm[r],pct:pm[r],fw:r==="EXTREME",rc:["EXTREME","HIGH","LOW"].includes(r),f23:["EXTREME","HIGH"].includes(r),ft:r==="EXTREME"?"Inundation + Erosion":r==="HIGH"?"Inundation":r==="LOW"?"Erosion hazard":r==="MODERATE"?"Low probability":"No flood risk",risk:r,ins:["EXTREME","HIGH"].includes(r)?"Required":"Not required",acts:am[r]};
+}
+
+// ═══════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════
+function render(res,q){
+  const rc=document.getElementById('rc'),nr=document.getElementById('nr'),as=document.getElementById('as'),live=document.getElementById('live');
+  rc.style.display=nr.style.display=as.style.display='none';
+  if(!res){nr.style.display='block';live.textContent='Address not found. Try a nearby street or visit Vermont Flood Ready Atlas.';return;}
+  const d=res.m==='s'?synth(res.r,q):res.d;
+  const rs=RISK_STYLE[d.risk];
+
+  // Result header background uses light tint
+  document.getElementById('rh-bg').style.background=rs.lt;
+
+  // Badge
+  const badge=document.getElementById('rbadge');
+  badge.style.background=rs.bg;
+  badge.style.borderColor='rgba(255,255,255,0.3)';
+  badge.setAttribute('aria-label',`Risk level: ${d.risk}, ${d.pct} annual chance`);
+  document.getElementById('bpct').textContent=d.pct;
+  document.getElementById('blbl').textContent=d.risk;
+
+  // Zone tag
+  const zt=document.getElementById('ztag');
+  zt.textContent=d.zone;zt.style.background=rs.bg;
+
+  // Address text color (dark on light header)
+  document.getElementById('raddr').style.color='var(--blue-8)';
+  document.getElementById('raddr').textContent=d.addr;
+  document.getElementById('rhood').style.color='var(--text-soft)';
+  document.getElementById('rhood').textContent='📍 '+d.hood;
+
+  const tiles=[
+    {i:"🌊",l:"Flood Type",v:d.ft},
+    {i:"📋",l:"FEMA Zone",v:d.zone},
+    {i:"⚠️",l:"In Active Floodway?",v:d.fw?"Yes — highest risk zone":"No"},
+    {i:"🌿",l:"ANR River Corridor?",v:d.rc?"Yes — erosion hazard present":"No"},
+    {i:"🏠",l:"Flood Insurance",v:d.ins},
+    {i:"📅",l:"2023 Flood Documented?",v:d.f23?"Yes — confirmed event":"No recorded impact"},
+  ];
+  document.getElementById('rbody').innerHTML=tiles.map(t=>`<div class="itile" role="listitem"><div class="ti" aria-hidden="true">${t.i}</div><div><div class="tlbl">${t.l}</div><div class="tval">${t.v}</div></div></div>`).join('');
+  rc.style.display='block';
+
+  // Actions with citations
+  document.getElementById('alist').innerHTML=d.acts.map(k=>{
+    const a=A[k];if(!a)return'';
+    const desc=a.d.replace(/\n/g,'<br>');
+    const citeHtml=a.cite?`<div class="acite"><strong>${a.cite.label}:</strong> ${a.cite.text}</div>`:'';
+    return`<div class="aitem" role="listitem"><div class="aitem-body"><div class="aico" aria-hidden="true">${a.i}</div><div><div class="atit">${a.t}</div><div class="adesc">${desc}</div><span class="acost">💰 ${a.c}</span></div></div>${citeHtml}</div>`;
+  }).join('');
+  as.style.display='block';
+
+  live.textContent=`Results for ${d.addr}. Risk level: ${d.risk}. ${d.acts.length} resilience actions recommended.`;
+  setTimeout(()=>rc.scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+function doSearch(e){
+  e.preventDefault();
+  const q=document.getElementById('addressInput').value.trim();
+  if(q)render(find(q),q);
+}
+document.getElementById('searchBtn').addEventListener('click',doSearch);
+document.getElementById('addressInput').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch(e);});
+</script>
+</body>
+</html>
