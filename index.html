@@ -86,7 +86,7 @@ body{font-family:var(--font-b);font-size:1rem;line-height:1.6;background:var(--p
 .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:56px;background:var(--page-bg);clip-path:ellipse(54% 100% at 50% 100%);}
 
 /* ── Van Gogh sunflower SVG (inline, muted yellows, transparent) ── */
-.sunflower-bg{position:absolute;right:-40px;top:-30px;width:420px;height:420px;opacity:.13;pointer-events:none;z-index:0;}
+.milkweed-bg{position:absolute;right:-30px;top:-20px;width:440px;height:520px;opacity:0.20;pointer-events:none;z-index:0;}
 
 .hero-in{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1;}
 
@@ -254,65 +254,422 @@ footer a:hover{text-decoration:underline;}
      shadows — all rendered with hatching/stroke layering
      to simulate colored pencil on paper
 ═══════════════════════════════════════════════════════ -->
-<svg class="sunflower-bg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <!-- Stem -->
-      <path d="M210 420 Q200 370 205 330 Q195 280 210 240" stroke="#D4B84A" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.7"/>
-      <!-- Leaves -->
-      <path d="M205 320 Q170 290 155 260 Q185 275 205 310" fill="#B8962E" opacity="0.5"/>
-      <path d="M207 295 Q245 265 262 235 Q232 252 208 286" fill="#B8962E" opacity="0.45"/>
-      <!-- Outer petals — ring 1 -->
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(22.5 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(45 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(67.5 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(90 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(112.5 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(135 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(157.5 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(180 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(202.5 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(225 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(247.5 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(270 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(292.5 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#D4B84A" opacity="0.8" transform="rotate(315 210 210)"/>
-      <ellipse cx="210" cy="148" rx="14" ry="42" fill="#EDD87A" opacity="0.85" transform="rotate(337.5 210 210)"/>
-      <!-- Inner petals — ring 2, shorter -->
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(11.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(33.75 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(56.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(78.75 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(101.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(123.75 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(146.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(168.75 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(191.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(213.75 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(236.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(258.75 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(281.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(303.75 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#B8962E" opacity="0.65" transform="rotate(326.25 210 210)"/>
-      <ellipse cx="210" cy="162" rx="9" ry="28" fill="#C8960A" opacity="0.7" transform="rotate(348.75 210 210)"/>
-      <!-- Seed head — dark center with spiral texture -->
-      <circle cx="210" cy="210" r="46" fill="#5A4008" opacity="0.9"/>
-      <circle cx="210" cy="210" r="42" fill="#3A2804" opacity="0.9"/>
-      <!-- Seed spiral dots -->
-      <circle cx="210" cy="195" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="222" cy="198" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="225" cy="210" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="222" cy="222" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="210" cy="225" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="198" cy="222" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="195" cy="210" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="198" cy="198" r="3" fill="#7A5C10" opacity="0.8"/>
-      <circle cx="210" cy="203" r="2.5" fill="#9A7820" opacity="0.7"/>
-      <circle cx="218" cy="206" r="2.5" fill="#9A7820" opacity="0.7"/>
-      <circle cx="218" cy="214" r="2.5" fill="#9A7820" opacity="0.7"/>
-      <circle cx="210" cy="217" r="2.5" fill="#9A7820" opacity="0.7"/>
-      <circle cx="202" cy="214" r="2.5" fill="#9A7820" opacity="0.7"/>
-      <circle cx="202" cy="206" r="2.5" fill="#9A7820" opacity="0.7"/>
-    </svg>
+<svg class="milkweed-bg" viewBox="0 0 440 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<defs>
+
+  <!-- Colored pencil texture: fine grain -->
+  <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" seed="2" result="noise"/>
+    <feColorMatrix type="saturate" values="0" in="noise" result="grey"/>
+    <feBlend in="SourceGraphic" in2="grey" mode="multiply" result="blend"/>
+    <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+  </filter>
+
+  <!-- Softer pencil for large fills -->
+  <filter id="pencilsoft" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.50" numOctaves="3" seed="5" result="noise"/>
+    <feColorMatrix type="saturate" values="0" in="noise" result="grey"/>
+    <feBlend in="SourceGraphic" in2="grey" mode="multiply" result="blend"/>
+    <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+  </filter>
+
+  <linearGradient id="stem1" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#2C4A1E"/>
+    <stop offset="35%"  stop-color="#4A7030"/>
+    <stop offset="65%"  stop-color="#5A8038"/>
+    <stop offset="100%" stop-color="#3A5C24"/>
+  </linearGradient>
+  <linearGradient id="stem2" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#2A4820"/>
+    <stop offset="40%"  stop-color="#486C2C"/>
+    <stop offset="100%" stop-color="#385820"/>
+  </linearGradient>
+  <linearGradient id="stem3" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#304E22"/>
+    <stop offset="30%"  stop-color="#527434"/>
+    <stop offset="70%"  stop-color="#5E8040"/>
+    <stop offset="100%" stop-color="#3E6028"/>
+  </linearGradient>
+  <linearGradient id="stem4" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#284018"/>
+    <stop offset="45%"  stop-color="#446828"/>
+    <stop offset="100%" stop-color="#324E1C"/>
+  </linearGradient>
+  <linearGradient id="stem5" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#2E4C1E"/>
+    <stop offset="35%"  stop-color="#4E7232"/>
+    <stop offset="100%" stop-color="#3C5C24"/>
+  </linearGradient>
+
+  <linearGradient id="leafg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%"   stop-color="#6A8C50"/>
+    <stop offset="40%"  stop-color="#4E7030"/>
+    <stop offset="100%" stop-color="#385820"/>
+  </linearGradient>
+  <linearGradient id="leafg2" x1="100%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#7A9C5C"/>
+    <stop offset="50%"  stop-color="#527834"/>
+    <stop offset="100%" stop-color="#3A5C22"/>
+  </linearGradient>
+  <linearGradient id="leafg3" x1="0%" y1="100%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#587840"/>
+    <stop offset="60%"  stop-color="#6A8C4C"/>
+    <stop offset="100%" stop-color="#4A6C30"/>
+  </linearGradient>
+
+  <radialGradient id="petalw" cx="35%" cy="30%" r="70%">
+    <stop offset="0%"   stop-color="#FEFEFE"/>
+    <stop offset="40%"  stop-color="#F5F5F0"/>
+    <stop offset="75%"  stop-color="#E8E8E2"/>
+    <stop offset="100%" stop-color="#D8D4DC"/>
+  </radialGradient>
+  <radialGradient id="petalw2" cx="60%" cy="35%" r="68%">
+    <stop offset="0%"   stop-color="#FFFFFF"/>
+    <stop offset="50%"  stop-color="#F2F2EE"/>
+    <stop offset="85%"  stop-color="#E0DDE6"/>
+    <stop offset="100%" stop-color="#CCCAD4"/>
+  </radialGradient>
+
+  <radialGradient id="corona" cx="50%" cy="40%" r="60%">
+    <stop offset="0%"   stop-color="#F8F8F0"/>
+    <stop offset="50%"  stop-color="#E8E8DC"/>
+    <stop offset="100%" stop-color="#C8C8B8"/>
+  </radialGradient>
+
+  <radialGradient id="clusterctr" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#EEEEE8"/>
+    <stop offset="100%" stop-color="#BCBCB0"/>
+  </radialGradient>
+
+  <linearGradient id="budg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#D8D8CC"/>
+    <stop offset="40%"  stop-color="#F0F0E8"/>
+    <stop offset="100%" stop-color="#C8C8BC"/>
+  </linearGradient>
+
+</defs>
+
+<!-- STEM 1 -->
+<path d="M108 520 C109 490 110 460 112 428 C114 396 116 364 118 332 C120 300 121 270 122 244 C123 220 124 198 125 178"
+  fill="none" stroke="url(#stem1)" stroke-width="7" stroke-linecap="round" filter="url(#pencil)"/>
+<path d="M110 518 C111 488 112 458 114 426 C116 394 118 362 120 330 C122 298 123 268 124 242 C125 218 126 196 127 176"
+  fill="none" stroke="#7AAA58" stroke-width="2.2" stroke-linecap="round" opacity="0.50"/>
+<path d="M106 520 C107 490 108 460 110 428 C112 396 114 364 116 332 C118 300 119 270 120 244"
+  fill="none" stroke="#1E3A10" stroke-width="2" stroke-linecap="round" opacity="0.38"/>
+<path d="M115 420 C98 412 82 400 72 382 C80 388 96 398 114 414" fill="url(#leafg)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.90"/>
+<path d="M114 418 C98 412 84 402 74 384" stroke="#4A6C28" stroke-width="0.7" fill="none" opacity="0.55"/>
+<path d="M115 419 C100 411 86 401 76 384" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.65"/>
+<path d="M108 414 C104 408 100 402 96 396" stroke="#3A5820" stroke-width="0.5" fill="none" opacity="0.45"/>
+<path d="M102 410 C99 404 96 398 94 392" stroke="#3A5820" stroke-width="0.5" fill="none" opacity="0.40"/>
+<path d="M117 422 C132 414 148 402 157 384 C150 390 135 400 116 415" fill="url(#leafg2)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.88"/>
+<path d="M118 420 C132 412 147 400 156 383" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.62"/>
+<path d="M124 416 C128 410 132 404 136 398" stroke="#3A5820" stroke-width="0.5" fill="none" opacity="0.42"/>
+<path d="M120 340 C104 332 88 318 78 298 C86 306 102 320 119 334" fill="url(#leafg)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.88"/>
+<path d="M119 338 C104 330 90 318 80 300" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.60"/>
+<path d="M113 334 C108 327 104 320 100 313" stroke="#3A5820" stroke-width="0.5" fill="none" opacity="0.42"/>
+<path d="M122 342 C137 334 151 320 160 300 C153 308 139 322 121 336" fill="url(#leafg3)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.86"/>
+<path d="M123 340 C136 332 150 318 159 300" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.58"/>
+<path d="M123 265 C110 258 96 246 88 228 C95 236 110 248 122 260" fill="url(#leafg2)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.85"/>
+<path d="M122 263 C110 256 97 245 89 229" stroke="#2E4818" stroke-width="0.8" fill="none" opacity="0.58"/>
+<path d="M124 267 C136 260 148 248 154 230 C148 238 137 250 123 262" fill="url(#leafg)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.83"/>
+<line x1="125" y1="178" x2="110" y2="158" stroke="#4A6C2C" stroke-width="1.5" opacity="0.75"/>
+<line x1="125" y1="178" x2="118" y2="152" stroke="#4A6C2C" stroke-width="1.5" opacity="0.75"/>
+<line x1="125" y1="178" x2="126" y2="150" stroke="#4A6C2C" stroke-width="1.5" opacity="0.72"/>
+<line x1="125" y1="178" x2="134" y2="153" stroke="#4A6C2C" stroke-width="1.5" opacity="0.72"/>
+<line x1="125" y1="178" x2="140" y2="160" stroke="#4A6C2C" stroke-width="1.5" opacity="0.70"/>
+<line x1="125" y1="178" x2="108" y2="168" stroke="#4A6C2C" stroke-width="1.2" opacity="0.65"/>
+<line x1="125" y1="178" x2="142" y2="170" stroke="#4A6C2C" stroke-width="1.2" opacity="0.65"/>
+<g transform="translate(110,155)">
+  <path d="M0,0 C-5,-7 -9,-12 -7,-18 C-3,-14 0,-8 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-4 -13,-8 -12,-14 C-8,-10 -3,-5 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-6,6 -9,11 -5,16 C-1,12 1,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C5,6 9,10 6,16 C2,12 0,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-4 12,-7 11,-13 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<g transform="translate(118,150) rotate(25)">
+  <path d="M0,0 C-5,-7 -9,-13 -7,-19 C-3,-14 0,-8 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-4 -14,-8 -13,-15 C-8,-10 -3,-5 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-6,6 -9,12 -5,17 C-1,12 1,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,6 10,11 7,17 C2,12 0,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C8,-3 13,-7 12,-14 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<g transform="translate(126,148) rotate(-15)">
+  <path d="M0,0 C-5,-8 -8,-14 -6,-20 C-2,-15 0,-8 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-9,-3 -14,-7 -13,-14 C-8,-10 -3,-5 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,7 -8,13 -4,18 C0,13 1,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,7 10,12 7,18 C2,13 0,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C8,-3 13,-6 12,-13 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<g transform="translate(134,151) rotate(40)">
+  <path d="M0,0 C-5,-7 -8,-13 -6,-18 C-2,-14 0,-7 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -13,-7 -11,-14 C-7,-9 -3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,6 -8,12 -4,17 C0,12 1,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,6 9,11 6,17 C2,12 0,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-3 12,-6 11,-12 C7,-8 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<g transform="translate(140,158) rotate(-30)">
+  <path d="M0,0 C-5,-7 -8,-12 -6,-18 C-2,-13 0,-7 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -12,-7 -11,-13 C-7,-9 -3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,6 -7,12 -4,16 C0,12 1,5 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C5,6 8,11 5,16 C2,12 0,5 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-3 11,-6 10,-12 C6,-8 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<ellipse cx="108" cy="168" rx="4" ry="6" fill="url(#budg)" stroke="#B8B8B0" stroke-width="0.8" transform="rotate(-10,108,168)" filter="url(#pencil)"/>
+<ellipse cx="143" cy="170" rx="3.5" ry="5.5" fill="url(#budg)" stroke="#B8B8B0" stroke-width="0.8" transform="rotate(15,143,170)" filter="url(#pencil)"/>
+
+<!-- STEM 2 -->
+<path d="M155 520 C156 490 157 460 158 432 C159 404 160 376 161 350 C162 326 163 304 164 284"
+  fill="none" stroke="url(#stem2)" stroke-width="7.5" stroke-linecap="round" filter="url(#pencil)"/>
+<path d="M157 518 C158 488 159 458 160 430 C161 402 162 374 163 348 C164 324 165 302 166 282"
+  fill="none" stroke="#6A9848" stroke-width="2.5" stroke-linecap="round" opacity="0.48"/>
+<path d="M153 520 C154 490 155 460 156 432 C157 404 158 376 159 350"
+  fill="none" stroke="#1C3410" stroke-width="2" stroke-linecap="round" opacity="0.33"/>
+<path d="M160 450 C144 440 128 426 118 408 C128 416 144 428 160 444" fill="url(#leafg3)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.90"/>
+<path d="M159 449 C145 440 130 428 120 410" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.60"/>
+<path d="M162 452 C175 442 188 428 195 410 C186 418 174 430 161 446" fill="url(#leafg)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.88"/>
+<path d="M163 450 C175 440 187 426 194 409" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.58"/>
+<path d="M162 378 C148 368 134 355 125 338 C134 346 148 358 162 372" fill="url(#leafg2)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.86"/>
+<path d="M161 377 C148 368 135 355 126 339" stroke="#2E4818" stroke-width="0.8" fill="none" opacity="0.57"/>
+<path d="M164 380 C177 370 189 356 196 339 C188 347 176 360 163 374" fill="url(#leafg)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.84"/>
+<line x1="164" y1="284" x2="150" y2="264" stroke="#4A6C2C" stroke-width="1.4" opacity="0.72"/>
+<line x1="164" y1="284" x2="158" y2="260" stroke="#4A6C2C" stroke-width="1.4" opacity="0.72"/>
+<line x1="164" y1="284" x2="166" y2="258" stroke="#4A6C2C" stroke-width="1.4" opacity="0.70"/>
+<line x1="164" y1="284" x2="174" y2="262" stroke="#4A6C2C" stroke-width="1.4" opacity="0.70"/>
+<line x1="164" y1="284" x2="178" y2="270" stroke="#4A6C2C" stroke-width="1.3" opacity="0.68"/>
+<g transform="translate(150,261) rotate(10)">
+  <path d="M0,0 C-5,-7 -8,-13 -6,-18 C-2,-13 0,-7 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -12,-7 -11,-13 C-7,-9 -3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,6 -7,12 -4,16 C0,12 1,5 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C5,6 8,11 5,16 C2,12 0,5 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-3 11,-6 10,-12 C6,-8 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<g transform="translate(158,258) rotate(-20)">
+  <path d="M0,0 C-5,-7 -8,-13 -6,-19 C-2,-14 0,-7 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -13,-7 -12,-14 C-8,-10 -3,-5 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,6 -8,12 -4,17 C0,12 1,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,6 9,11 6,17 C2,12 0,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-3 12,-6 11,-13 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<g transform="translate(166,256) rotate(5)">
+  <path d="M0,0 C-5,-8 -8,-14 -5,-20 C-2,-15 0,-8 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -14,-6 -12,-13 C-7,-9 -3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,7 -7,13 -3,18 C0,13 1,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,7 9,12 6,18 C2,13 0,6 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C8,-2 13,-5 11,-12 C7,-8 3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<g transform="translate(174,260) rotate(35)">
+  <path d="M0,0 C-5,-7 -7,-12 -5,-18 C-2,-13 0,-7 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-7,-3 -11,-7 -10,-13 C-6,-9 -3,-4 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-4,6 -7,11 -4,16 C0,12 1,5 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C5,6 8,10 5,16 C2,11 0,5 0,0" fill="url(#petalw2)" stroke="#BBBBB4" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-3 11,-5 10,-11 C6,-7 3,-3 0,0" fill="url(#petalw)" stroke="#C8C8C0" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A8A89C" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2" fill="#E8E8DC" stroke="#909088" stroke-width="0.5"/>
+</g>
+<ellipse cx="178" cy="270" rx="3.5" ry="5.5" fill="url(#budg)" stroke="#B8B8B0" stroke-width="0.8" transform="rotate(12,178,270)" filter="url(#pencil)"/>
+
+<!-- STEM 3 -->
+<path d="M248 520 C248 488 248 456 249 422 C249 388 250 354 250 318 C251 282 251 248 252 214 C252 182 252 154 253 128 C253 108 253 88 254 72"
+  fill="none" stroke="url(#stem3)" stroke-width="8.5" stroke-linecap="round" filter="url(#pencil)"/>
+<path d="M250 518 C250 486 250 454 251 420 C251 386 252 352 252 316 C253 280 253 246 254 212 C254 180 254 152 255 126"
+  fill="none" stroke="#7AAA58" stroke-width="3" stroke-linecap="round" opacity="0.52"/>
+<path d="M246 520 C246 488 246 456 247 422 C247 388 248 354 248 318 C249 282 249 248 250 214"
+  fill="none" stroke="#192E0C" stroke-width="2.5" stroke-linecap="round" opacity="0.36"/>
+<path d="M249 430 C228 420 208 405 195 385 C208 395 228 410 249 424" fill="url(#leafg)" stroke="#3A5820" stroke-width="1.1" filter="url(#pencilsoft)" opacity="0.92"/>
+<path d="M248 428 C228 419 209 405 196 386" stroke="#2E4818" stroke-width="1.0" fill="none" opacity="0.64"/>
+<path d="M238 423 C232 416 226 409 222 401" stroke="#3A5820" stroke-width="0.5" fill="none" opacity="0.46"/>
+<path d="M231 419 C226 413 222 406 219 398" stroke="#3A5820" stroke-width="0.5" fill="none" opacity="0.40"/>
+<path d="M251 432 C270 422 290 407 302 388 C290 398 270 412 250 426" fill="url(#leafg2)" stroke="#3A5820" stroke-width="1.1" filter="url(#pencilsoft)" opacity="0.90"/>
+<path d="M252 430 C270 420 289 405 301 386" stroke="#2E4818" stroke-width="1.0" fill="none" opacity="0.62"/>
+<path d="M262 425 C268 418 273 411 276 403" stroke="#3A5820" stroke-width="0.5" fill="none" opacity="0.44"/>
+<path d="M250 355 C230 344 210 329 198 308 C210 320 230 336 250 349" fill="url(#leafg3)" stroke="#3A5820" stroke-width="1.1" filter="url(#pencilsoft)" opacity="0.90"/>
+<path d="M249 353 C230 343 211 329 199 309" stroke="#2E4818" stroke-width="1.0" fill="none" opacity="0.62"/>
+<path d="M252 357 C271 346 290 330 300 310 C290 322 270 338 251 351" fill="url(#leafg)" stroke="#3A5820" stroke-width="1.1" filter="url(#pencilsoft)" opacity="0.88"/>
+<path d="M253 355 C271 344 289 328 299 308" stroke="#2E4818" stroke-width="1.0" fill="none" opacity="0.60"/>
+<path d="M251 278 C232 267 214 252 204 232 C214 244 233 259 251 272" fill="url(#leafg2)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.88"/>
+<path d="M250 276 C232 266 215 252 205 233" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.60"/>
+<path d="M253 280 C270 268 286 254 294 234 C286 246 270 260 252 274" fill="url(#leafg3)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.85"/>
+<path d="M252 205 C236 196 220 182 212 163 C220 174 237 188 252 199" fill="url(#leafg)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.84"/>
+<path d="M251 203 C236 195 221 182 213 164" stroke="#2E4818" stroke-width="0.8" fill="none" opacity="0.58"/>
+<path d="M254 207 C269 198 282 184 288 164 C282 176 268 190 253 201" fill="url(#leafg2)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.82"/>
+<path d="M253 140 C242 133 231 121 226 106 C232 116 243 128 253 136" fill="url(#leafg3)" stroke="#3A5820" stroke-width="0.8" filter="url(#pencilsoft)" opacity="0.78"/>
+<path d="M255 142 C265 135 273 122 276 107 C272 117 263 130 254 138" fill="url(#leafg)" stroke="#3A5820" stroke-width="0.8" filter="url(#pencilsoft)" opacity="0.75"/>
+<line x1="254" y1="72" x2="232" y2="46" stroke="#4A6C2C" stroke-width="1.6" opacity="0.75"/>
+<line x1="254" y1="72" x2="242" y2="40" stroke="#4A6C2C" stroke-width="1.6" opacity="0.75"/>
+<line x1="254" y1="72" x2="253" y2="38" stroke="#4A6C2C" stroke-width="1.5" opacity="0.73"/>
+<line x1="254" y1="72" x2="264" y2="40" stroke="#4A6C2C" stroke-width="1.5" opacity="0.73"/>
+<line x1="254" y1="72" x2="273" y2="47" stroke="#4A6C2C" stroke-width="1.5" opacity="0.70"/>
+<line x1="254" y1="72" x2="228" y2="56" stroke="#4A6C2C" stroke-width="1.3" opacity="0.67"/>
+<line x1="254" y1="72" x2="278" y2="58" stroke="#4A6C2C" stroke-width="1.3" opacity="0.67"/>
+<line x1="254" y1="72" x2="238" y2="52" stroke="#4A6C2C" stroke-width="1.2" opacity="0.62"/>
+<line x1="254" y1="72" x2="268" y2="52" stroke="#4A6C2C" stroke-width="1.2" opacity="0.62"/>
+<g transform="translate(232,43) rotate(-5)">
+  <path d="M0,0 C-6,-8 -10,-15 -8,-21 C-3,-16 0,-9 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-9,-4 -15,-9 -14,-16 C-9,-11 -4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-6,7 -9,13 -5,19 C-1,14 1,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C6,7 10,12 7,19 C3,14 0,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C9,-3 14,-8 13,-15 C8,-10 4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5.5" ry="4.5" fill="url(#corona)" stroke="#A0A098" stroke-width="0.8"/>
+  <circle cx="0" cy="-2" r="2.4" fill="#EAEAE2" stroke="#888880" stroke-width="0.6"/>
+</g>
+<g transform="translate(242,37) rotate(20)">
+  <path d="M0,0 C-6,-8 -10,-15 -7,-22 C-3,-16 0,-9 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-9,-4 -15,-8 -14,-16 C-9,-11 -4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-6,7 -9,14 -5,19 C-1,14 1,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C7,7 11,13 8,19 C3,14 0,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C9,-3 14,-7 13,-15 C8,-10 4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5.5" ry="4.5" fill="url(#corona)" stroke="#A0A098" stroke-width="0.8"/>
+  <circle cx="0" cy="-2" r="2.4" fill="#EAEAE2" stroke="#888880" stroke-width="0.6"/>
+</g>
+<g transform="translate(253,35) rotate(-12)">
+  <path d="M0,0 C-6,-9 -9,-16 -7,-22 C-3,-17 0,-9 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-10,-3 -15,-8 -14,-16 C-9,-11 -4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-6,7 -9,14 -5,20 C-1,14 1,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C7,7 10,13 7,20 C3,14 0,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C9,-2 15,-7 14,-14 C9,-10 4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5.5" ry="4.5" fill="url(#corona)" stroke="#A0A098" stroke-width="0.8"/>
+  <circle cx="0" cy="-2" r="2.4" fill="#EAEAE2" stroke="#888880" stroke-width="0.6"/>
+</g>
+<g transform="translate(264,37) rotate(30)">
+  <path d="M0,0 C-6,-8 -9,-15 -7,-21 C-3,-16 0,-8 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-9,-3 -14,-8 -13,-15 C-8,-10 -4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,7 -8,13 -5,19 C-1,13 1,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C6,7 9,12 6,19 C3,13 0,7 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C8,-2 13,-7 12,-14 C8,-10 4,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5.5" ry="4.5" fill="url(#corona)" stroke="#A0A098" stroke-width="0.8"/>
+  <circle cx="0" cy="-2" r="2.4" fill="#EAEAE2" stroke="#888880" stroke-width="0.6"/>
+</g>
+<g transform="translate(273,44) rotate(-25)">
+  <path d="M0,0 C-6,-8 -9,-14 -7,-20 C-2,-15 0,-8 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -13,-7 -12,-14 C-7,-9 -3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,7 -8,12 -4,18 C0,13 1,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C6,7 9,12 6,18 C3,13 0,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.9" filter="url(#pencil)"/>
+  <path d="M0,0 C8,-2 12,-7 11,-13 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.9" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5.5" ry="4.5" fill="url(#corona)" stroke="#A0A098" stroke-width="0.8"/>
+  <circle cx="0" cy="-2" r="2.4" fill="#EAEAE2" stroke="#888880" stroke-width="0.6"/>
+</g>
+<ellipse cx="228" cy="56" rx="4.5" ry="7" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.9" transform="rotate(-8,228,56)" filter="url(#pencil)"/>
+<ellipse cx="278" cy="58" rx="4" ry="6.5" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.9" transform="rotate(18,278,58)" filter="url(#pencil)"/>
+<ellipse cx="238" cy="52" rx="3.5" ry="5.5" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.8" transform="rotate(-15,238,52)" filter="url(#pencil)"/>
+<ellipse cx="268" cy="52" rx="3.5" ry="5.5" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.8" transform="rotate(22,268,52)" filter="url(#pencil)"/>
+
+<!-- STEM 4 -->
+<path d="M318 520 C317 490 316 458 315 426 C314 394 313 362 313 332 C313 305 312 278 312 255 C312 234 313 214 313 196"
+  fill="none" stroke="url(#stem4)" stroke-width="7" stroke-linecap="round" filter="url(#pencil)"/>
+<path d="M320 518 C319 488 318 456 317 424 C316 392 315 360 315 330 C315 303 314 276 314 253"
+  fill="none" stroke="#6A9848" stroke-width="2.2" stroke-linecap="round" opacity="0.47"/>
+<path d="M316 520 C315 490 314 458 313 426 C312 394 311 362 311 332"
+  fill="none" stroke="#1A3010" stroke-width="2" stroke-linecap="round" opacity="0.32"/>
+<path d="M314 420 C298 410 282 396 272 376 C282 388 298 402 314 414" fill="url(#leafg2)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.88"/>
+<path d="M313 418 C298 409 283 396 273 377" stroke="#2E4818" stroke-width="0.9" fill="none" opacity="0.60"/>
+<path d="M316 422 C330 412 344 398 351 378 C342 390 329 404 315 416" fill="url(#leafg)" stroke="#3A5820" stroke-width="1.0" filter="url(#pencilsoft)" opacity="0.86"/>
+<path d="M313 345 C298 335 284 320 276 300 C284 312 299 328 313 339" fill="url(#leafg3)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.85"/>
+<path d="M312 343 C298 334 285 320 277 301" stroke="#2E4818" stroke-width="0.8" fill="none" opacity="0.58"/>
+<path d="M315 347 C328 337 340 322 347 302 C340 314 328 330 314 341" fill="url(#leafg2)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.82"/>
+<path d="M312 268 C300 259 288 246 282 228 C289 240 301 253 312 262" fill="url(#leafg)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.82"/>
+<path d="M314 270 C325 261 335 248 338 229 C332 241 322 255 313 264" fill="url(#leafg3)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.80"/>
+<line x1="313" y1="196" x2="296" y2="174" stroke="#4A6C2C" stroke-width="1.4" opacity="0.70"/>
+<line x1="313" y1="196" x2="305" y2="170" stroke="#4A6C2C" stroke-width="1.4" opacity="0.70"/>
+<line x1="313" y1="196" x2="314" y2="168" stroke="#4A6C2C" stroke-width="1.4" opacity="0.70"/>
+<line x1="313" y1="196" x2="323" y2="171" stroke="#4A6C2C" stroke-width="1.4" opacity="0.68"/>
+<line x1="313" y1="196" x2="330" y2="177" stroke="#4A6C2C" stroke-width="1.3" opacity="0.66"/>
+<line x1="313" y1="196" x2="293" y2="183" stroke="#4A6C2C" stroke-width="1.2" opacity="0.63"/>
+<g transform="translate(296,171) rotate(8)">
+  <path d="M0,0 C-5,-7 -8,-13 -6,-19 C-2,-14 0,-7 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -12,-7 -11,-14 C-7,-9 -3,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,6 -8,12 -4,17 C0,12 1,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,6 9,11 6,17 C2,12 0,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-3 11,-7 10,-13 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A0A098" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#EAEAE2" stroke="#888880" stroke-width="0.5"/>
+</g>
+<g transform="translate(305,167) rotate(-18)">
+  <path d="M0,0 C-5,-7 -8,-13 -6,-19 C-2,-14 0,-7 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-8,-3 -13,-7 -12,-14 C-8,-9 -3,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,6 -8,12 -4,18 C0,12 1,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,6 9,12 6,18 C2,12 0,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C8,-3 12,-7 11,-13 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A0A098" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#EAEAE2" stroke="#888880" stroke-width="0.5"/>
+</g>
+<g transform="translate(314,165) rotate(2)">
+  <path d="M0,0 C-5,-8 -8,-14 -5,-20 C-2,-15 0,-8 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-9,-3 -13,-7 -12,-14 C-7,-9 -3,-5 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-5,7 -7,13 -4,18 C0,13 1,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,7 9,12 6,18 C2,13 0,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C8,-2 12,-6 11,-13 C7,-9 3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A0A098" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#EAEAE2" stroke="#888880" stroke-width="0.5"/>
+</g>
+<g transform="translate(323,168) rotate(28)">
+  <path d="M0,0 C-5,-7 -8,-12 -6,-18 C-2,-13 0,-7 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-7,-3 -11,-7 -10,-13 C-7,-9 -3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-4,6 -7,11 -4,17 C0,12 1,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C5,6 8,11 5,17 C2,12 0,6 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-2 11,-6 10,-12 C7,-8 3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="5" ry="4" fill="url(#corona)" stroke="#A0A098" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2.2" fill="#EAEAE2" stroke="#888880" stroke-width="0.5"/>
+</g>
+<ellipse cx="330" cy="177" rx="3.5" ry="5.5" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.8" transform="rotate(20,330,177)" filter="url(#pencil)"/>
+<ellipse cx="293" cy="183" rx="3" ry="5" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.8" transform="rotate(-10,293,183)" filter="url(#pencil)"/>
+
+<!-- STEM 5 -->
+<path d="M382 520 C381 492 380 464 379 436 C378 408 377 380 376 355 C375 332 375 310 375 292"
+  fill="none" stroke="url(#stem5)" stroke-width="6.5" stroke-linecap="round" filter="url(#pencil)"/>
+<path d="M384 518 C383 490 382 462 381 434 C380 406 379 378 378 353 C377 330 377 308 377 290"
+  fill="none" stroke="#6A9848" stroke-width="2" stroke-linecap="round" opacity="0.46"/>
+<path d="M380 520 C379 492 378 464 377 436 C376 408 375 380 374 355"
+  fill="none" stroke="#1A3010" stroke-width="1.8" stroke-linecap="round" opacity="0.30"/>
+<path d="M377 430 C364 420 350 406 342 388 C351 400 365 414 377 424" fill="url(#leafg)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.86"/>
+<path d="M376 428 C364 419 351 406 343 389" stroke="#2E4818" stroke-width="0.8" fill="none" opacity="0.57"/>
+<path d="M379 432 C390 422 401 408 406 390 C399 402 389 416 378 426" fill="url(#leafg2)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.84"/>
+<path d="M376 360 C364 350 352 337 346 318 C353 330 365 345 376 354" fill="url(#leafg3)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.83"/>
+<path d="M375 358 C363 349 353 337 347 319" stroke="#2E4818" stroke-width="0.8" fill="none" opacity="0.55"/>
+<path d="M378 362 C388 352 398 339 402 320 C396 332 386 347 377 356" fill="url(#leafg)" stroke="#3A5820" stroke-width="0.9" filter="url(#pencilsoft)" opacity="0.81"/>
+<line x1="375" y1="292" x2="360" y2="272" stroke="#4A6C2C" stroke-width="1.3" opacity="0.68"/>
+<line x1="375" y1="292" x2="368" y2="268" stroke="#4A6C2C" stroke-width="1.3" opacity="0.68"/>
+<line x1="375" y1="292" x2="376" y2="266" stroke="#4A6C2C" stroke-width="1.3" opacity="0.68"/>
+<line x1="375" y1="292" x2="384" y2="270" stroke="#4A6C2C" stroke-width="1.3" opacity="0.66"/>
+<line x1="375" y1="292" x2="390" y2="278" stroke="#4A6C2C" stroke-width="1.2" opacity="0.63"/>
+<g transform="translate(360,269) rotate(5)">
+  <path d="M0,0 C-4,-7 -7,-12 -5,-17 C-2,-13 0,-7 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-7,-3 -11,-6 -10,-12 C-6,-8 -3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-4,5 -6,11 -3,15 C0,11 1,5 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C5,5 7,10 5,15 C2,11 0,5 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C7,-2 10,-6 9,-11 C6,-7 3,-3 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="4.5" ry="3.5" fill="url(#corona)" stroke="#A0A098" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2" fill="#EAEAE2" stroke="#888880" stroke-width="0.5"/>
+</g>
+<g transform="translate(376,264) rotate(-10)">
+  <path d="M0,0 C-4,-7 -7,-13 -5,-18 C-2,-13 0,-7 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-7,-3 -11,-6 -10,-12 C-6,-8 -3,-4 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C-4,6 -6,11 -3,16 C0,11 1,5 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C5,6 7,10 5,16 C2,11 0,5 0,0" fill="url(#petalw2)" stroke="#B4B4AC" stroke-width="0.8" filter="url(#pencil)"/>
+  <path d="M0,0 C6,-2 10,-5 9,-11 C6,-7 3,-3 0,0" fill="url(#petalw)" stroke="#C0C0B8" stroke-width="0.8" filter="url(#pencil)"/>
+  <ellipse cx="0" cy="-2" rx="4.5" ry="3.5" fill="url(#corona)" stroke="#A0A098" stroke-width="0.7"/>
+  <circle cx="0" cy="-2" r="2" fill="#EAEAE2" stroke="#888880" stroke-width="0.5"/>
+</g>
+<ellipse cx="368" cy="268" rx="3.5" ry="6" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.8" transform="rotate(-8,368,268)" filter="url(#pencil)"/>
+<ellipse cx="384" cy="270" rx="3" ry="5.5" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.8" transform="rotate(14,384,270)" filter="url(#pencil)"/>
+<ellipse cx="390" cy="278" rx="3" ry="5" fill="url(#budg)" stroke="#B0B0A8" stroke-width="0.8" transform="rotate(22,390,278)" filter="url(#pencil)"/>
+
+</svg>
 
     <div class="hero-in">
       <div class="eyebrow" aria-hidden="true"><div class="edot"></div>Barre City, Vermont<div class="edot"></div></div>
