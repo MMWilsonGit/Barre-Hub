@@ -86,7 +86,7 @@ body{font-family:var(--font-b);font-size:1rem;line-height:1.6;background:var(--p
 .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:56px;background:var(--page-bg);clip-path:ellipse(54% 100% at 50% 100%);}
 
 /* ── Van Gogh sunflower SVG (inline, muted yellows, transparent) ── */
-.sunflower-bg{position:absolute;right:-40px;top:-30px;width:420px;height:420px;opacity:.13;pointer-events:none;z-index:0;}
+.sunflower-bg{position:absolute;right:-40px;top:-30px;width:420px;height:504px;opacity:.13;pointer-events:none;z-index:0;}
 
 .hero-in{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1;}
 
@@ -244,51 +244,88 @@ footer a:hover{text-decoration:underline;}
   <div class="hero">
 
     <!-- Van Gogh sunflower illustration — muted yellows, inline SVG -->
-    <svg class="sunflower-bg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <!-- Stem — loose, slightly curved -->
-  <path d="M210 420 Q205 380 208 340 Q203 300 207 260 Q204 240 210 220" stroke="#7A9A40" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6"/>
-  <!-- Leaf left -->
-  <path d="M207 330 Q172 310 158 278 Q180 288 207 320" fill="#6A8A30" opacity="0.45"/>
-  <!-- Leaf right -->
-  <path d="M208 295 Q248 272 262 242 Q235 258 209 286" fill="#7A9A40" opacity="0.4"/>
-  <!-- Loose watercolor wash — background glow -->
-  <ellipse cx="210" cy="180" rx="72" ry="78" fill="#EDD87A" opacity="0.10"/>
-  <ellipse cx="210" cy="178" rx="58" ry="62" fill="#D4B84A" opacity="0.08"/>
-  <!-- Outer petals — 6 loose, slightly irregular lily tepals -->
-  <!-- Tepal 1 — top center -->
-  <path d="M210 175 Q202 148 205 118 Q210 108 215 118 Q218 148 210 175" fill="#EDD87A" opacity="0.80"/>
-  <!-- Tepal 2 — upper right -->
-  <path d="M225 185 Q244 162 258 138 Q264 130 266 140 Q260 158 238 178" fill="#D4B84A" opacity="0.75"/>
-  <!-- Tepal 3 — lower right -->
-  <path d="M228 200 Q252 190 272 175 Q280 170 278 180 Q268 196 244 205" fill="#EDD87A" opacity="0.78"/>
-  <!-- Tepal 4 — bottom -->
-  <path d="M210 210 Q204 238 208 268 Q210 278 212 268 Q216 238 210 210" fill="#D4B84A" opacity="0.72"/>
-  <!-- Tepal 5 — lower left -->
-  <path d="M192 200 Q168 190 148 175 Q140 170 142 180 Q152 196 176 205" fill="#EDD87A" opacity="0.78"/>
-  <!-- Tepal 6 — upper left -->
-  <path d="M195 185 Q176 162 162 138 Q156 130 154 140 Q160 158 182 178" fill="#D4B84A" opacity="0.75"/>
-  <!-- Inner tepal highlights — loose watercolor wet-on-wet effect -->
-  <path d="M210 172 Q206 152 208 128 Q210 120 212 128 Q214 152 210 172" fill="#F5E898" opacity="0.55"/>
-  <path d="M222 183 Q238 164 250 144 Q254 138 255 145 Q250 162 232 178" fill="#F5E898" opacity="0.45"/>
-  <path d="M224 198 Q244 190 260 178 Q265 174 263 181 Q254 193 236 200" fill="#F5E898" opacity="0.45"/>
-  <!-- Center — stamens cluster, loose -->
-  <ellipse cx="210" cy="190" rx="22" ry="20" fill="#B8962E" opacity="0.55"/>
-  <ellipse cx="210" cy="190" rx="16" ry="14" fill="#9A7820" opacity="0.60"/>
-  <!-- Stamen dots — loose scattered -->
-  <circle cx="210" cy="178" r="3.5" fill="#C8960A" opacity="0.80"/>
-  <circle cx="220" cy="182" r="3"   fill="#D4A820" opacity="0.75"/>
-  <circle cx="222" cy="192" r="3"   fill="#C8960A" opacity="0.78"/>
-  <circle cx="218" cy="201" r="2.5" fill="#D4A820" opacity="0.70"/>
-  <circle cx="210" cy="204" r="3"   fill="#C8960A" opacity="0.75"/>
-  <circle cx="202" cy="201" r="2.5" fill="#D4A820" opacity="0.70"/>
-  <circle cx="198" cy="192" r="3"   fill="#C8960A" opacity="0.78"/>
-  <circle cx="200" cy="182" r="3"   fill="#D4A820" opacity="0.75"/>
-  <!-- Loose watercolor drips / texture marks -->
-  <path d="M205 115 Q207 110 210 108 Q213 110 211 118" fill="#EDD87A" opacity="0.35"/>
-  <path d="M260 136 Q265 132 268 136 Q266 142 261 144" fill="#D4B84A" opacity="0.30"/>
-  <path d="M208 270 Q210 276 212 270" stroke="#C8960A" stroke-width="1.5" opacity="0.30" fill="none"/>
-  <!-- Soft bloom glow overlay -->
-  <ellipse cx="210" cy="188" rx="40" ry="38" fill="#EDD87A" opacity="0.06"/>
+   <svg class="sunflower-bg" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <!-- Stems -->
+  <path d="M180 600 Q178 520 182 460 Q180 400 185 350 Q183 300 188 260" stroke="#5A7A30" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.75"/>
+  <path d="M240 600 Q242 530 238 470 Q240 410 236 360 Q238 310 234 270 Q232 240 235 210" stroke="#6A8A38" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.70"/>
+  <path d="M310 600 Q308 540 312 480 Q310 430 315 380 Q312 330 316 290 Q314 255 318 225 Q316 200 320 170" stroke="#5A7A30" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.72"/>
+  <path d="M370 600 Q368 550 372 500 Q370 450 374 400 Q372 360 376 320" stroke="#4A6A28" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.65"/>
+  <!-- Leaves -->
+  <path d="M182 460 Q155 440 140 410 Q158 420 183 448" fill="#5A7A30" opacity="0.50"/>
+  <path d="M185 380 Q215 360 225 330 Q208 345 186 372" fill="#6A8A38" opacity="0.45"/>
+  <path d="M238 440 Q210 425 198 398 Q216 410 239 432" fill="#5A7A30" opacity="0.48"/>
+  <path d="M234 330 Q262 312 272 284 Q256 298 235 322" fill="#4A6A28" opacity="0.50"/>
+  <path d="M312 450 Q338 432 348 405 Q330 418 313 442" fill="#6A8A38" opacity="0.45"/>
+  <path d="M315 360 Q285 345 276 318 Q292 330 314 353" fill="#5A7A30" opacity="0.48"/>
+  <path d="M374 480 Q348 462 340 436 Q356 448 375 472" fill="#4A6A28" opacity="0.42"/>
+  <path d="M316 280 Q344 262 354 235 Q338 250 317 272" fill="#5A7A30" opacity="0.45"/>
+  <!-- Bloom 1 — large, fully open -->
+  <ellipse cx="188" cy="235" rx="62" ry="58" fill="#EDD87A" opacity="0.12"/>
+  <path d="M188 238 Q178 210 180 182 Q185 170 192 180 Q196 210 188 238" fill="#EDD87A" opacity="0.82"/>
+  <path d="M202 228 Q222 206 236 186 Q242 178 244 188 Q238 206 212 224" fill="#D4A820" opacity="0.78"/>
+  <path d="M206 242 Q230 234 248 222 Q255 216 253 226 Q242 240 218 246" fill="#EDD87A" opacity="0.80"/>
+  <path d="M188 248 Q182 276 185 302 Q187 312 190 302 Q194 276 188 248" fill="#D4A820" opacity="0.74"/>
+  <path d="M174 242 Q150 234 132 222 Q125 216 127 226 Q138 240 164 246" fill="#EDD87A" opacity="0.80"/>
+  <path d="M174 228 Q154 206 140 186 Q134 178 136 188 Q142 206 168 224" fill="#D4A820" opacity="0.78"/>
+  <path d="M188 235 Q185 215 186 192" stroke="#C8780A" stroke-width="1.2" fill="none" opacity="0.40"/>
+  <path d="M198 228 Q212 214 224 198" stroke="#C8780A" stroke-width="1.2" fill="none" opacity="0.38"/>
+  <path d="M202 240 Q218 235 234 228" stroke="#C8780A" stroke-width="1.2" fill="none" opacity="0.38"/>
+  <ellipse cx="188" cy="240" rx="20" ry="18" fill="#9A6010" opacity="0.55"/>
+  <ellipse cx="188" cy="240" rx="13" ry="12" fill="#7A4808" opacity="0.65"/>
+  <circle cx="188" cy="228" r="3"   fill="#C8960A" opacity="0.85"/>
+  <circle cx="197" cy="231" r="2.5" fill="#D4A820" opacity="0.80"/>
+  <circle cx="200" cy="240" r="2.5" fill="#C8960A" opacity="0.82"/>
+  <circle cx="196" cy="249" r="2.5" fill="#D4A820" opacity="0.78"/>
+  <circle cx="188" cy="252" r="3"   fill="#C8960A" opacity="0.82"/>
+  <circle cx="179" cy="249" r="2.5" fill="#D4A820" opacity="0.78"/>
+  <circle cx="176" cy="240" r="2.5" fill="#C8960A" opacity="0.82"/>
+  <circle cx="179" cy="231" r="2.5" fill="#D4A820" opacity="0.80"/>
+  <!-- Bloom 2 — right, slightly smaller -->
+  <ellipse cx="320" cy="155" rx="55" ry="52" fill="#EDD87A" opacity="0.10"/>
+  <path d="M320 158 Q312 133 314 108 Q318 98 324 107 Q328 132 320 158" fill="#EDD87A" opacity="0.80"/>
+  <path d="M333 149 Q350 130 362 112 Q367 105 369 114 Q364 130 340 146" fill="#D4A820" opacity="0.76"/>
+  <path d="M336 162 Q356 155 372 144 Q378 139 376 148 Q366 160 344 165" fill="#EDD87A" opacity="0.78"/>
+  <path d="M320 168 Q315 192 318 215 Q320 224 322 215 Q325 192 320 168" fill="#D4A820" opacity="0.72"/>
+  <path d="M307 162 Q288 155 272 144 Q266 139 268 148 Q278 160 300 165" fill="#EDD87A" opacity="0.78"/>
+  <path d="M307 149 Q290 130 278 112 Q273 105 271 114 Q276 130 300 146" fill="#D4A820" opacity="0.76"/>
+  <path d="M320 156 Q318 138 318 118" stroke="#C8780A" stroke-width="1.1" fill="none" opacity="0.38"/>
+  <path d="M329 149 Q340 137 350 124" stroke="#C8780A" stroke-width="1.1" fill="none" opacity="0.35"/>
+  <ellipse cx="320" cy="162" rx="18" ry="17" fill="#9A6010" opacity="0.52"/>
+  <ellipse cx="320" cy="162" rx="12" ry="11" fill="#7A4808" opacity="0.62"/>
+  <circle cx="320" cy="152" r="2.8" fill="#C8960A" opacity="0.85"/>
+  <circle cx="328" cy="155" r="2.3" fill="#D4A820" opacity="0.80"/>
+  <circle cx="331" cy="162" r="2.3" fill="#C8960A" opacity="0.82"/>
+  <circle cx="328" cy="170" r="2.3" fill="#D4A820" opacity="0.78"/>
+  <circle cx="320" cy="173" r="2.8" fill="#C8960A" opacity="0.82"/>
+  <circle cx="312" cy="170" r="2.3" fill="#D4A820" opacity="0.78"/>
+  <circle cx="309" cy="162" r="2.3" fill="#C8960A" opacity="0.82"/>
+  <circle cx="312" cy="155" r="2.3" fill="#D4A820" opacity="0.80"/>
+  <!-- Bloom 3 — left, partially open -->
+  <path d="M142 310 Q130 288 126 264 Q128 254 133 260 Q140 282 144 308" fill="#EDD87A" opacity="0.70"/>
+  <path d="M154 304 Q165 280 170 256 Q172 248 166 252 Q158 272 152 300" fill="#D4A820" opacity="0.68"/>
+  <path d="M148 316 Q160 308 168 296 Q168 288 162 292 Q152 306 148 314" fill="#EDD87A" opacity="0.65"/>
+  <path d="M138 316 Q126 308 118 296 Q118 288 124 292 Q134 306 138 314" fill="#D4A820" opacity="0.65"/>
+  <ellipse cx="144" cy="314" rx="12" ry="11" fill="#9A6010" opacity="0.48"/>
+  <circle cx="144" cy="306" r="2.2" fill="#C8960A" opacity="0.80"/>
+  <circle cx="150" cy="310" r="2"   fill="#D4A820" opacity="0.75"/>
+  <circle cx="150" cy="318" r="2"   fill="#C8960A" opacity="0.78"/>
+  <circle cx="144" cy="322" r="2.2" fill="#D4A820" opacity="0.75"/>
+  <circle cx="138" cy="318" r="2"   fill="#C8960A" opacity="0.78"/>
+  <circle cx="138" cy="310" r="2"   fill="#D4A820" opacity="0.75"/>
+  <!-- Bloom 4 — top right bud -->
+  <path d="M375 295 Q368 272 370 250 Q372 242 377 248 Q380 268 376 294" fill="#EDD87A" opacity="0.65"/>
+  <path d="M383 300 Q392 278 394 256 Q394 248 389 252 Q384 272 382 298" fill="#D4A820" opacity="0.62"/>
+  <path d="M368 300 Q360 280 360 258 Q360 250 365 253 Q368 272 369 298" fill="#D4A820" opacity="0.60"/>
+  <ellipse cx="376" cy="305" rx="10" ry="9" fill="#9A6010" opacity="0.44"/>
+  <circle cx="376" cy="297" r="2"   fill="#C8960A" opacity="0.78"/>
+  <circle cx="382" cy="302" r="1.8" fill="#D4A820" opacity="0.72"/>
+  <circle cx="370" cy="302" r="1.8" fill="#D4A820" opacity="0.72"/>
+  <!-- Watercolor texture marks -->
+  <path d="M178 178 Q180 172 184 170" stroke="#EDD87A" stroke-width="1.5" fill="none" opacity="0.30"/>
+  <path d="M252 220 Q256 215 258 218" stroke="#D4B84A" stroke-width="1.5" fill="none" opacity="0.25"/>
+  <path d="M314 102 Q316 97 320 96"   stroke="#EDD87A" stroke-width="1.5" fill="none" opacity="0.28"/>
+  <ellipse cx="310" cy="155" rx="80" ry="70" fill="#EDD87A" opacity="0.05"/>
+  <ellipse cx="188" cy="240" rx="85" ry="75" fill="#C8960A" opacity="0.04"/>
 </svg>
 
     <div class="hero-in">
