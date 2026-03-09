@@ -461,52 +461,12 @@ const RISK_STYLE = {
 };
 
 // ═══════════════════════════════════════════
-// PROPERTY DATA
+// PROPERTY DATA — loaded from barre_lookup.json
 // ═══════════════════════════════════════════
-const P=[
-  {addr:"1 Granite St",hood:"North End / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
-  {addr:"10 River St",hood:"North End / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
-  {addr:"18 River St",hood:"North End / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
-  {addr:"10 Brooklyn St",hood:"Brooklyn / Ward 3",zone:"Zone AE – Floodway",pct:"1.0%",fw:true,rc:true,f23:true,ft:"Inundation + Erosion",risk:"EXTREME",ins:"Required",acts:["grade-away","riparian-shrubs","backwater-valve","downspout-extend"]},
-  {addr:"25 Granite St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","downspout-extend"]},
-  {addr:"44 Granite St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","downspout-extend"]},
-  {addr:"12 North Main St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","french-drain"]},
-  {addr:"30 North Main St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","french-drain"]},
-  {addr:"56 North Main St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve","french-drain"]},
-  {addr:"5 Park St",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
-  {addr:"56 Parkside Terrace",hood:"North End / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve"]},
-  {addr:"1 Berlin St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve","french-drain"]},
-  {addr:"20 Berlin St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve","french-drain"]},
-  {addr:"8 Pike St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
-  {addr:"22 Pike St",hood:"Berlin St Corridor / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
-  {addr:"5 West Paterson St",hood:"West Side / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Flash Flooding",risk:"HIGH",ins:"Required",acts:["grade-swale","rain-garden","riparian-shrubs","backwater-valve"]},
-  {addr:"18 West Paterson St",hood:"West Side / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Flash Flooding",risk:"HIGH",ins:"Required",acts:["grade-swale","rain-garden","riparian-shrubs","backwater-valve"]},
-  {addr:"10 Orange St",hood:"West Side / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Flash Flooding",risk:"HIGH",ins:"Required",acts:["grade-swale","rain-garden","native-groundcover","backwater-valve"]},
-  {addr:"14 Maple Ave",hood:"Downtown / Ward 1",zone:"Zone AE",pct:"1.0%",fw:false,rc:false,f23:true,ft:"Stormwater Backup",risk:"HIGH",ins:"Required",acts:["native-groundcover","backwater-valve","basement-seal","rain-barrel"]},
-  {addr:"30 Merchant St",hood:"Downtown / Ward 1",zone:"Zone AE",pct:"1.0%",fw:false,rc:false,f23:true,ft:"Stormwater Backup",risk:"HIGH",ins:"Required",acts:["native-groundcover","backwater-valve","basement-seal","rain-barrel"]},
-  {addr:"15 Seminary St",hood:"Seminary / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
-  {addr:"40 Seminary St",hood:"Seminary / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve"]},
-  {addr:"5 North Seminary St",hood:"Seminary / Ward 2",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","native-groundcover","backwater-valve","french-drain"]},
-  {addr:"8 Smith St",hood:"Brooklyn / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve"]},
-  {addr:"22 Smith St",hood:"Brooklyn / Ward 3",zone:"Zone AE",pct:"1.0%",fw:false,rc:true,f23:true,ft:"Inundation",risk:"HIGH",ins:"Required",acts:["grade-away","rain-garden","riparian-shrubs","backwater-valve"]},
-  {addr:"100 Washington St",hood:"Downtown / Ward 1",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel"]},
-  {addr:"55 Prospect St",hood:"Prospect Heights",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel","uphill-shrubs"]},
-  {addr:"210 South Main St",hood:"South End / Ward 4",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel"]},
-  {addr:"88 Summer St",hood:"East Side / Ward 4",zone:"Zone X (500-yr)",pct:"0.2%",fw:false,rc:false,f23:false,ft:"Low probability",risk:"MODERATE",ins:"Not required",acts:["native-groundcover","basement-seal","rain-barrel"]},
-  {addr:"15 Howard St",hood:"West Side / Ward 3",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:true,f23:false,ft:"Erosion hazard",risk:"LOW",ins:"Recommended",acts:["riparian-shrubs","native-groundcover","rain-barrel"]},
-  {addr:"35 George St",hood:"West Side / Ward 3",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:true,f23:false,ft:"Erosion hazard",risk:"LOW",ins:"Recommended",acts:["riparian-shrubs","native-groundcover","rain-barrel"]},
-  {addr:"45 Hill St",hood:"Upper Ward 2",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:false,f23:false,ft:"No flood risk",risk:"MINIMAL",ins:"Not required",acts:["uphill-shrubs","micro-wetland","canopy-trees"]},
-  {addr:"80 Maple Ave",hood:"Upper Ward 1",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:false,f23:false,ft:"No flood risk",risk:"MINIMAL",ins:"Not required",acts:["uphill-shrubs","micro-wetland","canopy-trees"]},
-  {addr:"120 High St",hood:"Upper Ward 4",zone:"Zone X (unshaded)",pct:"<0.2%",fw:false,rc:false,f23:false,ft:"No flood risk",risk:"MINIMAL",ins:"Not required",acts:["uphill-shrubs","micro-wetland","canopy-trees"]},
-];
-
-const SR={
-  river:"EXTREME",granite:"HIGH","north main":"HIGH",berlin:"HIGH",pike:"HIGH",
-  paterson:"HIGH",orange:"HIGH",seminary:"HIGH",smith:"HIGH",brooklyn:"EXTREME",
-  parkside:"HIGH",park:"HIGH",maple:"HIGH",merchant:"HIGH",washington:"MODERATE",
-  summer:"MODERATE",prospect:"MODERATE",howard:"LOW",george:"LOW",
-  "south main":"MODERATE",hill:"MINIMAL","high st":"MINIMAL"
-};
+let LOOKUP = null;
+fetch('barre_lookup.json')
+  .then(r => r.json())
+  .then(data => { LOOKUP = data; });
 
 // ═══════════════════════════════════════════
 // ACTIONS DATABASE (with citations, no vendor/org references)
@@ -621,14 +581,45 @@ const A = {
 // ═══════════════════════════════════════════
 // LOOKUP
 // ═══════════════════════════════════════════
-function norm(s){return s.toLowerCase().replace(/[.,\-]/g,'').trim();}
+function norm(s){
+  return s.toUpperCase().trim()
+    .replace('NORTH ','N ').replace('SOUTH ','S ')
+    .replace('EAST ','E ').replace('WEST ','W ')
+    .replace('STREET','ST').replace('AVENUE','AVE')
+    .replace('TERRACE','TER').replace('PLACE','PL')
+    .replace('DRIVE','DR').replace('LANE','LN')
+    .replace('PATERSON','PATTERSON')
+    .replace(/\s+/g,' ').trim();
+}
 
 function find(q){
-  const n=norm(q);
-  for(const p of P){if(norm(p.addr)===n)return{m:'e',d:p};}
-  for(const p of P){const s=norm(p.addr).split(' ').slice(1).join(' ');if(n.includes(s)||norm(p.addr).includes(n))return{m:'p',d:p};}
-  for(const[s,r]of Object.entries(SR)){if(n.includes(s))return{m:'s',r};}
-  return null;
+  if(!LOOKUP) return null;
+  const key = norm(q);
+  const hit = LOOKUP[key] || LOOKUP[q.toUpperCase().trim()];
+  if(!hit) return null;
+  const fw = hit.fld_zone==='AE' && hit.zone_subty==='FLOODWAY';
+  const zm = {EXTREME:'Zone AE – Floodway',HIGH:'Zone AE',MODERATE:'Zone X (500-yr)',LOW:'Zone X (unshaded)',MINIMAL:'Zone X (unshaded)'};
+  const pm = {EXTREME:'1.0%',HIGH:'1.0%',MODERATE:'0.2%',LOW:'<0.2%',MINIMAL:'<0.2%'};
+  const am = {
+    EXTREME:['grade-away','riparian-shrubs','backwater-valve','downspout-extend'],
+    HIGH:['grade-away','rain-garden','riparian-shrubs','backwater-valve','downspout-extend'],
+    MODERATE:['native-groundcover','basement-seal','rain-barrel'],
+    LOW:['riparian-shrubs','native-groundcover','rain-barrel'],
+    MINIMAL:['uphill-shrubs','micro-wetland','canopy-trees']
+  };
+  return {m:'e', d:{
+    addr: hit.address,
+    hood: 'Barre City, VT',
+    zone: zm[hit.risk],
+    pct:  pm[hit.risk],
+    fw:   fw,
+    rc:   false,
+    f23:  ['EXTREME','HIGH'].includes(hit.risk),
+    ft:   fw?'Inundation + Erosion':hit.risk==='HIGH'?'Inundation':hit.risk==='MODERATE'?'Low probability':hit.risk==='LOW'?'Erosion hazard':'No flood risk',
+    risk: hit.risk,
+    ins:  ['EXTREME','HIGH'].includes(hit.risk)?'Required':'Not required',
+    acts: am[hit.risk]
+  }};
 }
 
 function synth(r,q){
