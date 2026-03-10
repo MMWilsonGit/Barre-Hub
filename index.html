@@ -85,8 +85,9 @@ body{font-family:var(--font-b);font-size:1rem;line-height:1.6;background:var(--p
 /* Curved bottom edge */
 .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:56px;background:var(--page-bg);clip-path:ellipse(54% 100% at 50% 100%);}
 
-/* ── Van Gogh sunflower SVG (inline, muted yellows, transparent) ── */
-.community-bg{position:absolute;right:-20px;top:-10px;width:420px;height:420px;opacity:0.55;pointer-events:none;z-index:0;object-fit:cover;} .hero::before{content:'';position:absolute;inset:0;background:transparent;pointer-events:none;z-index:0;transition:background .2s;} @media(max-width:700px){.hero::before{background:rgba(15,47,71,0.55);}}
+/* ── Community hands illustration ── */
+.community-bg{position:absolute;right:-20px;top:-10px;width:420px;height:420px;opacity:0.55;pointer-events:none;z-index:0;object-fit:cover;}
+@media(max-width:700px){.community-bg{opacity:0;}.hero::before{background:rgba(15,47,71,0.55);}}
 
 .hero-in{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1;}
 
