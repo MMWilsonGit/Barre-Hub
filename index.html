@@ -638,7 +638,6 @@ function render(res,q){
     {i:"📋",l:"FEMA Zone",v:d.zone},
     {i:"⚠️",l:"In Active Floodway?",v:d.fw?"Yes — highest risk zone":"No"},
     {i:"🌿",l:"ANR River Corridor?",v:d.rc?"Yes — erosion hazard present":"No"},
-    {i:"🏠",l:"Flood Insurance",v:d.ins},
     {i:"📅",l:"2023 Flood Documented?",v:d.f23?"Yes — confirmed event":"No recorded impact"},
   ];
   document.getElementById('rbody').innerHTML=tiles.map(t=>`<div class="itile" role="listitem"><div class="ti" aria-hidden="true">${t.i}</div><div><div class="tlbl">${t.l}</div><div class="tval">${t.v}</div></div></div>`).join('');
@@ -646,8 +645,10 @@ function render(res,q){
   disc.style.display='block';
   requestAnimationFrame(()=>{
     requestAnimationFrame(()=>{
+      document.documentElement.style.scrollBehavior='auto';
       const top=disc.getBoundingClientRect().top+window.scrollY-80;
-      window.scrollTo({top,behavior:'smooth'});
+      window.scrollTo({top,behavior:'auto'});
+      setTimeout(()=>{document.documentElement.style.scrollBehavior='';},100);
     });
   });
 
