@@ -642,7 +642,7 @@ function render(res,q){
     {i:"📅",l:"2023 Flood Documented?",v:d.f23?"Yes — confirmed event":"No recorded impact"},
   ];
   document.getElementById('rbody').innerHTML=tiles.map(t=>`<div class="itile" role="listitem"><div class="ti" aria-hidden="true">${t.i}</div><div><div class="tlbl">${t.l}</div><div class="tval">${t.v}</div></div></div>`).join('');
-  rc.style.display='block';   disc.style.display='block';    // Actions with citations
+  rc.style.display='block';   disc.style.display='block';   setTimeout(()=>disc.scrollIntoView({behavior:'smooth',block:'start'}),50);    // Actions with citations
 
   // Actions with citations
   document.getElementById('alist').innerHTML=d.acts.map(k=>{
