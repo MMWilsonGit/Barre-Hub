@@ -643,14 +643,9 @@ function render(res,q){
   document.getElementById('rbody').innerHTML=tiles.map(t=>`<div class="itile" role="listitem"><div class="ti" aria-hidden="true">${t.i}</div><div><div class="tlbl">${t.l}</div><div class="tval">${t.v}</div></div></div>`).join('');
   rc.style.display='block';
   disc.style.display='block';
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      document.documentElement.style.scrollBehavior='auto';
-      const top=disc.getBoundingClientRect().top+window.scrollY-80;
-      window.scrollTo({top,behavior:'auto'});
-      setTimeout(()=>{document.documentElement.style.scrollBehavior='';},100);
-    });
-  });
+  document.documentElement.style.scrollBehavior='auto';
+  window.scrollTo(0,0);
+  document.documentElement.style.scrollBehavior='';
 
   // Actions with citations
   document.getElementById('alist').innerHTML=d.acts.map(k=>{
